@@ -1,10 +1,54 @@
 @extends('admin.layouts.master')
 
 @section('content')
-    <!-- Default box -->
+<div class="row">
+    <div class="col-md-6">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Add Category</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form" action="{{ route('admin.category') }}" method="POST">
+                {{ csrf_field() }}
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control"  placeholder="Enter Category" name="name">
+                </div>
+                <div class="form-group">
+                  <label for="slug">Slug</label>
+                  <input type="text" class="form-control"  placeholder="Enter Slug" name="slug">
+                </div>
+                <div class="form-group">
+                  <label for="icon">Icon</label>
+                  <input type="text" class="form-control"  placeholder="Enter Icon" name="icon">
+                </div>
+                <div class="form-group">
+                  <label for="parent_id">Parent Category</label>
+                  <select name="parent_id" class="form-control">
+                      @foreach($categorys as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                      @endforeach
+                  </select>
+                </div>
+
+              </div>
+              <!-- /.box-body -->
+
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+        </div>
+          <!-- /.box -->
+
+    </div>
+    <div class="col-md-6">
+        <!-- Default box -->
       <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Table With Full Features</h3>
+              <h3 class="box-title">Data Category</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -13,8 +57,6 @@
                 <tr>
                   <th>No.</th>
                   <th>Category</th>
-                  <th>Sub Category</th>
-                  <th>Slug</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -25,18 +67,10 @@
                 @foreach($categorys as $category)
                 <tr>
                     <td>{{ $no++ }}</td>
-                    <td>{{ $category->name }}</td>
-                    <td>
+                    <td>{{ $category->name }}
                         <ul>
                             @foreach($category->children as $subcategory)
                             <li>{{ $subcategory->name }}</li>
-                            @endforeach
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            @foreach($category->children as $subcategory)
-                            <li>{{ $subcategory->slug }}</li>
                             @endforeach
                         </ul>
                     </td>
@@ -44,10 +78,10 @@
                 @endforeach
               </table>
             </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-      <!-- /.box -->
+      </div>
+    </div>
+</div>
+
 
 @endsection
 
