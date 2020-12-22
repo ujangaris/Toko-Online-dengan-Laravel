@@ -19,8 +19,29 @@
                 </thead>
                 <tbody>
 
-
-                </tfoot>
+                @php
+                    $no = 1;
+                @endphp
+                @foreach($categorys as $category)
+                <tr>
+                    <td>{{ $no++ }}</td>
+                    <td>{{ $category->name }}</td>
+                    <td>
+                        <ul>
+                            @foreach($category->children as $subcategory)
+                            <li>{{ $subcategory->name }}</li>
+                            @endforeach
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            @foreach($category->children as $subcategory)
+                            <li>{{ $subcategory->slug }}</li>
+                            @endforeach
+                        </ul>
+                    </td>
+                </tr>
+                @endforeach
               </table>
             </div>
             <!-- /.box-body -->
