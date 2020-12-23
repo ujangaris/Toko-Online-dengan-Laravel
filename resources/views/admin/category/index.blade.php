@@ -59,6 +59,7 @@
                 <tr>
                   <th>No.</th>
                   <th>Category</th>
+                  <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -76,10 +77,23 @@
                             @endforeach
                         </ul>
                     </td>
-                    <td><a href="{{ url('admin/category/'.$category->id.'/edit') }}">Edit</a>
+                    <td>
+                        <form action="{{ route('category.destroy', $category->id) }}" method="post">
+                        <a href="{{ url('admin/category/'.$category->id.'/edit') }}" class="btn btn-warning btn-xs">Edit</a>
+                            {{ csrf_field() }}
+                            {{ method_field('delete') }}
+                            <input type="submit" value="Delete" class="btn btn-danger btn-xs">
+                        </form>
                         <ul>
                             @foreach($category->children as $subcategory)
-                            <li class="table_list" style="margin-left:-41px; list-style-type:none;"><a href="{{ url('admin/category/'.$subcategory->id.'/edit') }}">Edit</a></li>
+                            <li class="table_list" style="margin-left:-40px; margin-top:5px; list-style-type:none;">
+                                <form action="{{ route('category.destroy', $subcategory->id) }}" method="post">
+                                <a href="{{ url('admin/category/'.$subcategory->id.'/edit') }}" class="btn btn-warning btn-xs">Edit</a>
+                                {{ csrf_field() }}
+                                {{ method_field('delete') }}
+                                    <input type="submit" value="Delete" class="btn btn-danger btn-xs">
+                                </form>
+                            </li>
                             @endforeach
                         </ul>
                     </td>
