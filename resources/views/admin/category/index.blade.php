@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">Add Category</h3>
@@ -46,7 +46,7 @@
           <!-- /.box -->
 
     </div>
-    <div class="col-md-6">
+    <div class="col-md-8">
         <!-- Default box -->
       <div class="box">
             <div class="box-header">
@@ -73,6 +73,13 @@
                         <ul>
                             @foreach($category->children as $subcategory)
                             <li>{{ $subcategory->name }}</li>
+                            @endforeach
+                        </ul>
+                    </td>
+                    <td><a href="{{ url('admin/category/'.$category->id.'/edit') }}">Edit</a>
+                        <ul>
+                            @foreach($category->children as $subcategory)
+                            <li class="table_list" style="margin-left:-41px; list-style-type:none;"><a href="{{ url('admin/category/'.$subcategory->id.'/edit') }}">Edit</a></li>
                             @endforeach
                         </ul>
                     </td>
