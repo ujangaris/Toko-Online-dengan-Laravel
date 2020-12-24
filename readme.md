@@ -34,3 +34,6 @@ Laravel Toko Online adalah materi pembelajaran dari https://belajarphp.net
     First import the SweetAlert facade in your controller.
 
     use RealRashid\SweetAlert\Facades\Alert;
+
+- [php artisan make:controller ProductController -r](membuat Controller product)
+- [php artisan make:model Product](membuat Model product)
