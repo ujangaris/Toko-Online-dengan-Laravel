@@ -3,6 +3,7 @@
 <html>
 @include('admin.layouts.partials.head')
 <body class="hold-transition skin-blue sidebar-mini">
+    <!-- Sweet alert -->
 <!-- Site wrapper -->
 <div class="wrapper">
 
@@ -50,6 +51,8 @@
   <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
+        @include('sweetalert::alert')
+
 
 @include('admin.layouts.partials.scripts')
 </body>

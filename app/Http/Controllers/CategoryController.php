@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+// use Alert;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CategoryController extends Controller
 {
@@ -20,7 +22,9 @@ class CategoryController extends Controller
        $category->icon = $request->icon;
        $category->parent_id = $request->parent_id;
        $category->save();
-       return redirect()->back();
+        Alert::success('Success Message', 'Category Berhasi ditambahkan!');
+
+        return redirect('admin/category');
     }
 
     public function edit(Request $request,$id)
@@ -38,6 +42,8 @@ class CategoryController extends Controller
         $category->icon = $request->icon;
         $category->parent_id = $request->parent_id;
         $category->save();
+        Alert::success('Success Message', 'Category Berhasi diperbaharui!');
+
         return redirect()->route('category.index');
     }
 
@@ -45,6 +51,7 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($id);
         $category->delete();
+        Alert::success('Success Message', 'Category Berhasi dihapus!');
         return redirect()->route('category.index');
     }
 }

@@ -12,3 +12,25 @@
 Laravel Toko Online adalah materi pembelajaran dari https://belajarphp.net
 
 - [php artisan make:auth](membuat ui login dan register dengan mudah dilaravel)
+- [composer require realrashid/sweet-alert](https://realrashid.github.io/sweet-alert/install)
+
+- If using laravel < 5.5 include the service provider and alias within config/app.php.
+
+    'providers' => [
+        RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+    ];
+
+    'aliases' => [
+        'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+    ];
+
+- configuration:
+    Include 'sweetalert::alert' in master layout
+
+        @include('sweetalert::alert')
+-run comand :
+        [php artisan sweetalert:publish]
+- Using the Facade
+    First import the SweetAlert facade in your controller.
+
+    use RealRashid\SweetAlert\Facades\Alert;
