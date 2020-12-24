@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 // use Alert;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -20,6 +21,7 @@ class CategoryController extends Controller
        $category->slug = $request->slug;
        $category->name = $request->name;
        $category->icon = $request->icon;
+       $category->user_id = Auth::user()->id;
        $category->parent_id = $request->parent_id;
        $category->save();
         Alert::success('Success Message', 'Category Berhasi ditambahkan!');
