@@ -22,7 +22,7 @@
                 </div>
                 <div class="form-group">
                       <label for="description">Description</label>
-                      <textarea id="description" class="form-control" name="description" rows="3"></textarea>
+                      <textarea id="editor" class="form-control"  name="description" rows="3"></textarea>
                   </div>
                 </div>
                 <div class="form-group">
@@ -66,11 +66,31 @@
 {{-- Data table --}}
 @push('styledataTable')
     <!-- DataTables -->
-  <link rel="stylesheet" href="{{ asset('/static/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
-@endpush
+    <link rel="stylesheet" href="{{ asset('/static/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
+    @endpush
 
-@push('scripts')
-          <!-- DataTables -->
+    @push('scripts')
+
+
+
+    <!-- CKeditor -->
+
+<script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+<script>
+    var options = {
+        filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+        filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+        filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+        filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+    };
+</script>
+<script>
+    CKEDITOR.replace('editor', options);
+</script>
+
+
+
+<!-- DataTables -->
 <script src="{{ asset('/static/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('/static/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
 <!-- page script -->
@@ -87,4 +107,5 @@
     })
   })
 </script>
+
 @endpush

@@ -11,7 +11,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
+/* Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
+ */
 Route::prefix('admin')->middleware('auth')->group(function(){
 
     Route::get('dashboard', 'HomeController@index');

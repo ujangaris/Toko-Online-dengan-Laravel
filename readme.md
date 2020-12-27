@@ -12,6 +12,8 @@
 Laravel Toko Online adalah materi pembelajaran dari https://belajarphp.net
 
 - [php artisan make:auth](membuat ui login dan register dengan mudah dilaravel)
+## Memasang pakage Sweete Alert
+
 - [composer require realrashid/sweet-alert](https://realrashid.github.io/sweet-alert/install)
 
 - If using laravel < 5.5 include the service provider and alias within config/app.php.
@@ -40,3 +42,37 @@ Laravel Toko Online adalah materi pembelajaran dari https://belajarphp.net
 
 - [php artisan make:migration add_slug_on_products_table --table=products
 ](Menambahkan field(slug) baru pada table products)
+
+## menambahkan pakage CKeditor
+- [composer require unisharp/laravel-filemanager](https://unisharp.github.io/laravel-filemanager/installation)
+
+- Publish the package’s config and assets :
+
+    php artisan vendor:publish --tag=lfm_config
+    php artisan vendor:publish --tag=lfm_public
+
+- (optional) Run commands to clear cache :
+
+    php artisan route:clear
+    php artisan config:clear
+
+- Create symbolic link :
+
+    php artisan storage:link
+
+- Added the following code in the web.php file:
+    Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+    });
+
+- This is my lfm config i used with Laravel Nova and it works fin
+
+    // Include to pre-defined routes from package or not. Middlewares
+    'use_package_routes' => true,
+
+    // Middlewares which should be applied to all package routes.
+    // For laravel 5.1 and before, remove 'web' from the array.
+    'middlewares' => ['web', 'auth'],
+
+    // The url to this package. Change it if necessary.
+    'url_prefix' => 'laravel-filemanager',
