@@ -37,3 +37,6 @@ Laravel Toko Online adalah materi pembelajaran dari https://belajarphp.net
 
 - [php artisan make:controller ProductController -r](membuat Controller product)
 - [php artisan make:model Product](membuat Model product)
+
+- [php artisan make:migration add_slug_on_products_table --table=products
+](Menambahkan field(slug) baru pada table products)

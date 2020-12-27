@@ -25,7 +25,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active"><a href="https://adminlte.io/docs"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+        <li class="active"><a href="{{ route('home') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
         <li><a href="{{ route('category.index') }}"><i class="fa fa-list-alt"></i> <span>Category</span></a></li>
         <li class="treeview ">
           <a href="#">
@@ -36,7 +36,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{ route('product.index') }}"><i class="fa fa-circle-o"></i> List Product</a></li>
-            <li><a href="profile.html"><i class="fa fa-circle-o"></i> Add Product</a></li>
+            <li><a href="{{ route('product.create') }}"><i class="fa fa-circle-o"></i> Add Product</a></li>
           </ul>
         </li>
 

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-// use Alert;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class CategoryController extends Controller
