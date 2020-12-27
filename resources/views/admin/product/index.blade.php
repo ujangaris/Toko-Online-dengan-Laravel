@@ -17,6 +17,7 @@
                   <th>Photo</th>
                   <th>Product</th>
                   <th>Stock</th>
+                  <th>user</th>
                   <th>Aksi</th>
                 </tr>
                 </thead>
@@ -30,6 +31,7 @@
                             <td><img src="{{ url($item->photo) }}" height="50px;"></td>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->stock }}</td>
+                            <td>{{ $item->user->name }}</td>
                         </tr>
                     @endforeach
                 </tbody>

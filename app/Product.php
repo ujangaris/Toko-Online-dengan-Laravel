@@ -8,5 +8,8 @@ class Product extends Model
 {
     protected $fillable = ['photo', 'name', 'slug','description','stock', 'price', 'category_id', 'user_id'];
 
-
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
