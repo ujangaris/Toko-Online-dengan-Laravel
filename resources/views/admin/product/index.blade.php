@@ -32,7 +32,14 @@
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->stock }}</td>
                             <td>{{ $item->user->name }}</td>
-                            <td><a href="{{ url('admin/product/'. $item->id.'/edit') }}" class="btn btn-sm btn-warning">Edit</a></td>
+                            <form action="{{ route('product.destroy', $item->id) }}" method="post">
+                            <td>
+                                <a href="{{ url('admin/product/'. $item->id.'/edit') }}" class="btn btn-sm btn-warning">Edit</a>
+                                {{ csrf_field() }}
+                                {{ method_field('delete') }}
+                                    <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
