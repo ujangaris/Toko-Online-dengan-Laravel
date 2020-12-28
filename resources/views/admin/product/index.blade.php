@@ -32,6 +32,7 @@
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->stock }}</td>
                             <td>{{ $item->user->name }}</td>
+                            <td><a href="{{ url('admin/product/'. $item->id.'/edit') }}" class="btn btn-sm btn-warning">Edit</a></td>
                         </tr>
                     @endforeach
                 </tbody>
