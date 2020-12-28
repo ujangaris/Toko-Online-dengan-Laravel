@@ -17,7 +17,7 @@ class CreateTableProducts extends Migration
             $table->increments('id');
             $table->string('photo');
             $table->string('name');
-            $table->text('description');
+            $table->longtext('description');
             $table->integer('stock');
             $table->integer('price');
             //relasi category
