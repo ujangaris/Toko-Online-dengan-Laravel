@@ -32,9 +32,9 @@
                             <td>
 
                                 @if($transactions->status == 0)
-                                <a href="" ><span class="badge bg-red">Belum</span></a>
+                                <a href="{{ url('admin/transaction/'.$transactions->code.'/'.$transactions->status) }}" ><span class="badge bg-red">Belum</span></a>
                                 @else
-                                <a href="" ><span class="badge bg-green">Sudah</span></a>
+                                <a href="{{ url('admin/transaction/'.$transactions->code.'/'.$transactions->status) }}" ><span class="badge bg-green">Sudah</span></a>
                                 @endif
                             </td>
                         </tr>

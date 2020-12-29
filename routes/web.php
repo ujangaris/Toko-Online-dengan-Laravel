@@ -23,4 +23,5 @@ Route::prefix('admin')->middleware('auth')->group(function(){
     Route::resource('category', 'CategoryController');
     Route::resource('product', 'ProductController');
     Route::get('transaction', 'TransactionController@index')->name('transaction.index');
+    Route::get('transaction/{code}/{status}', 'TransactionController@status');
 });
