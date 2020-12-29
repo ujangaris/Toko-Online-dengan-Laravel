@@ -48,7 +48,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="invoice.html"><i class="fa fa-circle-o"></i> List Transaction</a></li>
+            <li><a href="{{ route('transaction.index') }}"><i class="fa fa-circle-o"></i> List Transaction</a></li>
             <li><a href="profile.html"><i class="fa fa-circle-o"></i> Laporan</a></li>
           </ul>
         </li>

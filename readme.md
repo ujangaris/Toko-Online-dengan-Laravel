@@ -76,3 +76,13 @@ Laravel Toko Online adalah materi pembelajaran dari https://belajarphp.net
 
     // The url to this package. Change it if necessary.
     'url_prefix' => 'laravel-filemanager',
+
+- [php artisan make:model Transaction](membuat model untuk transaction)
+- [php artisan make:controller TransactionController](membuat Controller untuk transaction)
+
+-Seting database : config/database.php
+    'mysql' => [
+            'driver' => 'mysql',
+            'prefix_indexes' => true,
+            'strict' => false, bagian ini dari true rubah jadi false
+

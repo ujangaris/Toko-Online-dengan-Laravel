@@ -22,4 +22,5 @@ Route::prefix('admin')->middleware('auth')->group(function(){
     Route::post('category', 'CategoryController@store')->name('admin.category'); */
     Route::resource('category', 'CategoryController');
     Route::resource('product', 'ProductController');
+    Route::get('transaction', 'TransactionController@index')->name('transaction.index');
 });
