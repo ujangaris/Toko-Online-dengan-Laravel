@@ -36,7 +36,7 @@ class CreateTableTransaction extends Migration
             $table->string('name');
             $table->string('address');
             $table->integer('portal_code');
-            $table->enum('ekspedisi', ['TIKI', 'JNE', 'POS']);
+            $table->json('ekspedisi');
             $table->enum('status', ['0', '1']);
             $table->timestamps();
         });

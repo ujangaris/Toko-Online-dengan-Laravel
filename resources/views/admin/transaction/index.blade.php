@@ -16,8 +16,8 @@
                   <th>No.</th>
                   <th>Code</th>
                   <th>Member</th>
+                  <th>Ekspedisi</th>
                   <th>Status</th>
-                  <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -29,6 +29,7 @@
                             <td>{{ $no++ }}</td>
                             <td>{{ $transactions->code }}</td>
                             <td>{{ $transactions->user->name }}</td>
+                            <td>{{ $transactions->ekspedisi['name'] }}</td>
                             <td>
 
                                 @if($transactions->status == 0)
@@ -56,7 +57,7 @@
 @endpush
 
 @push('scripts')
-          <!-- DataTa
+          <!-- DataTa-->
 <script src="{{ asset('/static/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('/static/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
 <!-- page script -->
