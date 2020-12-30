@@ -19,6 +19,7 @@ class CreateTableProducts extends Migration
             $table->string('name');
             $table->longtext('description');
             $table->integer('stock');
+            $table->integer('weight');
             $table->integer('price');
             //relasi category
             $table->unsignedInteger('category_id')->nullable();

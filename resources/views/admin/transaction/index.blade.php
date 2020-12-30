@@ -17,7 +17,7 @@
                   <th>Code</th>
                   <th>Member</th>
                   <th>Ekspedisi</th>
-                  <th>Status</th>
+                  <th>Menu</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -37,6 +37,9 @@
                                 @else
                                 <a href="{{ url('admin/transaction/'.$transactions->code.'/'.$transactions->status) }}" ><span class="badge bg-green">Sudah</span></a>
                                 @endif
+                            </td>
+                            <td>
+                                <a href="{{ url('admin/transaction/'.$transactions->code.'/detail/data') }}" class="btn btn-sm btn-primary">Detail</a>
                             </td>
                         </tr>
                     @endforeach

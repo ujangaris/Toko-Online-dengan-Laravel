@@ -14,7 +14,7 @@
               <div class="box-body">
                 <div class="form-group">
                   <label for="name">Name</label>
-                  <input type="text" class="form-control"  placeholder="Enter Category" name="name">
+                  <input type="text" class="form-control"  placeholder="Enter Name Product" name="name">
                 </div>
                 <div class="form-group">
                   <label for="slug">Slug</label>
@@ -32,6 +32,10 @@
                 <div class="form-group">
                   <label for="price">Price</label>
                   <input type="number" class="form-control"  placeholder="Enter Price" name="price">
+                </div>
+                <div class="form-group">
+                  <label for="weight">Weight</label>
+                  <input type="number" class="form-control"  placeholder="Enter Weight" name="weight">
                 </div>
                 <div class="form-group">
                   <label for="parent_id">Parent Category</label>

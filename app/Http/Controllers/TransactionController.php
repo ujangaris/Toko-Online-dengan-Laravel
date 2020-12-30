@@ -29,4 +29,11 @@ class TransactionController extends Controller
 
         return redirect('admin/transaction');
     }
+
+    public function detail($code)
+    {
+        $transaction = Transaction::groupBy('code')->orderBy('id', 'DESC')->first();
+        $transactiondetail = Transaction::orderBy('id', 'DESC')->get();
+        return view('admin.transaction.detail', compact('transaction', 'transactiondetail'));
+    }
 }

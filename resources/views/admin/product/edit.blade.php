@@ -34,6 +34,10 @@
                   <input type="number" class="form-control"  placeholder="Enter Price" name="price" value="{{ $product->price }}">
                 </div>
                 <div class="form-group">
+                  <label for="weight">Weight</label>
+                  <input type="number" class="form-control"  placeholder="Enter weight" name="weight" value="{{ $product->weight }}">
+                </div>
+                <div class="form-group">
                   <label for="parent_id">Parent Category</label>
                   <select name="category_id" class="form-control">
                       <option value="">Select</option>

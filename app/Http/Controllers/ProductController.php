@@ -53,6 +53,7 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->description = $request->description;
         $product->stock = $request->stock;
+        $product->weight = $request->weight;
         $product->price = $request->price;
         $product->category_id = $request->category_id;
         $product->user_id = Auth::user()->id;
@@ -111,6 +112,7 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->description = $request->description;
         $product->stock = $request->stock;
+        $product->weight = $request->weight;
         $product->price = $request->price;
         $product->category_id = $request->category_id;
         $product->user_id = Auth::user()->id;
