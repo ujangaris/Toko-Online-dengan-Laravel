@@ -17,24 +17,48 @@
                 </div>
                 <!-- info row -->
                 <div class="row invoice-info">
-                    <div class="col-sm-3 invoice-col">
-                        Nama
+                    <div class="col-md-6">
+                         <div class="col-sm-2 invoice-col">
+                            <strong>Nama</strong>
+                        </div>
+                        <div class="col-sm-9 invoice-col">
+                            {{ $transaction->user->name }}
+                        </div>
+                        <div class="col-sm-2 invoice-col">
+                            <strong>Alamat</strong>
+                        </div>
+                        <div class="col-sm-9 invoice-col">
+                            {{ $transaction->user->address }}
+                        </div>
+                        <div class="col-sm-2 invoice-col">
+                            <strong>Code</strong>
+                        </div>
+                        <div class="col-sm-9 invoice-col">
+                            {{ $transaction->code }}
+                        </div>
                     </div>
-                    <div class="col-sm-9 invoice-col">
-                        <strong>{{ $transaction->user->name }}</strong>
+                    <div class="col-md-6">
+                        <div class="col-sm-2 invoice-col">
+                            <strong>Ekspedisi</strong>
+                        </div>
+                        <div class="col-sm-9 invoice-col">
+                            - {{ $transaction->ekspedisi['code'] }}<br>
+                            - {{ $transaction->ekspedisi['etd'] }} Hari<br>
+                            - {{ $transaction->ekspedisi['name'] }}
+                        </div>
+                        <div class="col-sm-2 invoice-col">
+                            <strong>Status</strong>
+                        </div>
+                        <div class="col-sm-9 invoice-col">
+                            @if ($transaction->status == 0)
+                                Belum Lunas
+                            @else
+                                <strong class="badge bg-green">Lunas</strong>
+                            @endif
+                        </div>
                     </div>
-                    <div class="col-sm-3 invoice-col">
-                        Alamat
-                    </div>
-                    <div class="col-sm-9 invoice-col">
-                        <strong>{{ $transaction->user->address }}</strong>
-                    </div>
-                    <div class="col-sm-3 invoice-col">
-                        Code
-                    </div>
-                    <div class="col-sm-9 invoice-col">
-                        <strong>{{ $transaction->code }}</strong>
-                    </div>
+
+
                 </div>
                 <br>
                 <!-- /.row -->
@@ -81,20 +105,18 @@
                 <div class="row">
                     <!-- accepted payments column -->
                     <div class="col-xs-6">
-                    <p class="lead">Payment Methods:</p>
-                    <img src="../../dist/img/credit/visa.png" alt="Visa">
-                    <img src="../../dist/img/credit/mastercard.png" alt="Mastercard">
-                    <img src="../../dist/img/credit/american-express.png" alt="American Express">
-                    <img src="../../dist/img/credit/paypal2.png" alt="Paypal">
+                    <p class="lead">Rekening Bak</p>
+
 
                     <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
-                        Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem plugg
-                        dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
+                        Halaman ini merupakan halaman transaksi, pengiriman pembayaran dilakukan melalui rekening bank.
                     </p>
                     </div>
                     <!-- /.col -->
                     <div class="col-xs-6">
-                    <p class="lead">Amount Due 2/22/2014</p>
+                        <div class="callout callout-info">
+                        <p class="lead">Time : {{ date('d F Y, H:i',strtotime($transaction->created_at)) }}</p>
+                        </div>
 
                     <div class="table-responsive">
                         <table class="table">

@@ -17,6 +17,7 @@
                   <th>Code</th>
                   <th>Member</th>
                   <th>Ekspedisi</th>
+                  <th>Status</th>
                   <th>Menu</th>
                 </tr>
                 </thead>
