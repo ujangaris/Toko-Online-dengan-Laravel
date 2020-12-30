@@ -10,7 +10,14 @@ class Transaction extends Model
     {
         return $this->belongsTo('App\user');
     }
+
+    public function product()
+    {
+        return $this->belongsTo('App\Product');
+    }
     protected $casts = [
         'ekspedisi' => 'array'
     ];
+
+
 }
