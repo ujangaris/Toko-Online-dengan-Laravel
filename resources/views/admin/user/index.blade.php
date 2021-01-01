@@ -22,6 +22,7 @@
                   <th>Gender</th>
                   <th>Status</th>
                   <th>Role</th>
+                  <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -50,6 +51,7 @@
                                 @endif
                             </td>
                             <td>{{ $users->role }}</td>
+
                         </tr>
                     @endforeach
                 </tbody>
