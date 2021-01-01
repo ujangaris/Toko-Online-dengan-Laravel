@@ -97,3 +97,7 @@ Laravel Toko Online adalah materi pembelajaran dari https://belajarphp.net
     
     'PDF' => Barryvdh\DomPDF\Facade::class,
 
+
+## User
+
+- [php artisan make:controller UserController](Membuat Controller User)

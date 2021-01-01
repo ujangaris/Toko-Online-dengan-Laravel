@@ -25,9 +25,13 @@ Route::prefix('admin')->middleware('auth')->group(function(){
     Route::post('category', 'CategoryController@store')->name('admin.category'); */
     Route::resource('category', 'CategoryController');
     Route::resource('product', 'ProductController');
+
+    // transaction
     Route::get('transaction', 'TransactionController@index')->name('transaction.index');
     Route::get('transaction/{code}/{status}', 'TransactionController@status');
     Route::get('transaction/{code}/detail/data', 'TransactionController@detail');
     Route::get('transaction/{code}/detail/data/cetak', 'TransactionController@cetakpdf');
-    // Route::get('transaction/{code}/detail/data/cetak', 'TransactionController@showPdf');
+
+    // users
+    Route::get('user', 'UserController@index')->name('admin.user');
 });
