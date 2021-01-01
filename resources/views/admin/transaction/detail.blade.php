@@ -10,7 +10,7 @@
                     <div class="col-xs-12">
                     <h2 class="page-header">
                         <i class="fa fa-globe"></i> Detail Transaction
-                        <small class="pull-right">Code: {{ $transaction->code }}</small>
+                        <small class="pull-right"><strong>Code:</strong> {{ $transaction->code }}</small>
                     </h2>
                     </div>
                     <!-- /.col -->
@@ -19,22 +19,19 @@
                 <div class="row invoice-info">
                     <div class="col-md-6">
                          <div class="col-sm-2 invoice-col">
-                            <strong>Nama</strong>
+                            <strong>Pengirim</strong>
                         </div>
                         <div class="col-sm-9 invoice-col">
-                            {{ $transaction->user->name }}
-                        </div>
-                        <div class="col-sm-2 invoice-col">
-                            <strong>Alamat</strong>
-                        </div>
-                        <div class="col-sm-9 invoice-col">
+                            {{ $transaction->name }} (<strong>{{ $transaction->user->name }}</strong>)<br>
                             {{ $transaction->user->address }}
+
                         </div>
                         <div class="col-sm-2 invoice-col">
-                            <strong>Code</strong>
+                            <strong>Penerima</strong>
                         </div>
                         <div class="col-sm-9 invoice-col">
-                            {{ $transaction->code }}
+                            {{ $transaction->user->name }} <br>
+                            {{ $transaction->address }}
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -142,12 +139,10 @@
                 <!-- this row will not appear when printing -->
                 <div class="row no-print">
                     <div class="col-xs-12">
-                    <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
-                    <button type="button" class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Submit Payment
-                    </button>
-                    <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
+                        <a class="btn btn-primary pull-right"  style="margin-right: 5px;"
+                        href="{{ url('admin/transaction/'.$transaction->code.'/detail/data/cetak') }}">
                         <i class="fa fa-download"></i> Generate PDF
-                    </button>
+                        </a>
                     </div>
                 </div>
             </section>

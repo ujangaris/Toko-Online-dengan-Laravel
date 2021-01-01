@@ -5,6 +5,9 @@ use RealRashid\SweetAlert\Facades\Alert;
 Route::get('/', function () {
     Alert::success('hello');
     return view('welcome');
+    /* $pdf = App::make('dompdf.wrapper');
+    $pdf->loadHTML('<h1>Test</h1>');
+    return $pdf->stream();*/
 });
 
 Auth::routes();
@@ -25,4 +28,6 @@ Route::prefix('admin')->middleware('auth')->group(function(){
     Route::get('transaction', 'TransactionController@index')->name('transaction.index');
     Route::get('transaction/{code}/{status}', 'TransactionController@status');
     Route::get('transaction/{code}/detail/data', 'TransactionController@detail');
+    Route::get('transaction/{code}/detail/data/cetak', 'TransactionController@cetakpdf');
+    // Route::get('transaction/{code}/detail/data/cetak', 'TransactionController@showPdf');
 });

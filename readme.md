@@ -86,3 +86,14 @@ Laravel Toko Online adalah materi pembelajaran dari https://belajarphp.net
             'prefix_indexes' => true,
             'strict' => false, bagian ini dari true rubah jadi false
 
+## PDF
+
+- [composer require barryvdh/laravel-dompdf](https://github.com/barryvdh/laravel-dompdf)
+
+- After updating composer, add the ServiceProvider to the providers array in config/app.php
+
+    Barryvdh\DomPDF\ServiceProvider::class,
+- You can optionally use the facade for shorter code. Add this to your facades:
+    
+    'PDF' => Barryvdh\DomPDF\Facade::class,
+
