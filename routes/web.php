@@ -34,4 +34,5 @@ Route::prefix('admin')->middleware('auth')->group(function(){
 
     // users
     Route::get('user', 'UserController@index')->name('admin.user');
+    Route::get('user/status/{id}', 'UserController@changestatus');
 });

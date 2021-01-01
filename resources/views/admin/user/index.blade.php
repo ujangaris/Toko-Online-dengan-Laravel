@@ -44,9 +44,9 @@
                                 @endif
                             </td>
                             <td>@if($users->status == 0)
-                                    Aktif
+                                    <a href="{{ url('admin/user/status/'.$users->id) }}" class="badge bg-red">Tidak Aktif</a>
                                 @else
-                                    Tidak Aktif
+                                    <a href="{{ url('admin/user/status/'.$users->id) }}" class="badge bg-green"> Aktif</a>
                                 @endif
                             </td>
                             <td>{{ $users->role }}</td>
