@@ -31,7 +31,7 @@
                     @endphp
                     @foreach($user as $users)
                         <tr>
-                            <td>{{ $no++ }}</td>
+                            <td>{{ $users->id }}</td>
                             <td><img src="{{ $users->photo }}" width="50px;"></td>
                             <td>{{ $users->name }}</td>
                             <td>{{ $users->username }}</td>
@@ -51,6 +51,9 @@
                                 @endif
                             </td>
                             <td>{{ $users->role }}</td>
+                            <td>
+                                <a href="{{ url('admin/user/edit/'.$users->id) }}" class="btn btn-sm btn-warning btn-xs">Edit</a>
+                            </td>
 
                         </tr>
                     @endforeach
