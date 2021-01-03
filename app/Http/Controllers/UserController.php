@@ -81,4 +81,13 @@ class UserController extends Controller
         return redirect('admin/user');
     }
 
+    public function delete($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+        Alert::success('', 'User  berhasil di hapus');
+        return redirect('admin/user');
+
+    }
+
 }

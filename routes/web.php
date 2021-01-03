@@ -12,13 +12,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
 
 Route::prefix('admin')->middleware('auth')->group(function(){
+    Route::get('/home', 'HomeController@index')->name('home');
 
     Route::get('dashboard', 'HomeController@index');
     /* Route::get('category', 'CategoryController@index');
@@ -39,4 +39,5 @@ Route::prefix('admin')->middleware('auth')->group(function(){
     Route::post('user/add', 'UserController@store')->name('admin.user.store');
     Route::get('user/edit/{id}', 'UserController@edit');
     Route::post('user/update', 'UserController@update');
+    Route::get('user/delete/{id}', 'UserController@delete');
 });

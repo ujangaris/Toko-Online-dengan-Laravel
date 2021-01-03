@@ -53,6 +53,7 @@
                             <td>{{ $users->role }}</td>
                             <td>
                                 <a href="{{ url('admin/user/edit/'.$users->id) }}" class="btn btn-sm btn-warning btn-xs">Edit</a>
+                                <a href="{{ url('admin/user/delete/'.$users->id) }}" class="btn btn-sm btn-danger btn-xs">Delete</a>
                             </td>
 
                         </tr>

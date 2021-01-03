@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use App\Product;
+use App\Transaction;
+use App\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,6 +28,10 @@ class HomeController extends Controller
     public function index()
     {
         // return view('home');
-        return view('admin.dashboard');
+        $category = Category::all()->count();
+        $user = User::all()->count();
+        $product = Product::all()->count();
+        $transaction = Transaction::all()->count();
+        return view('admin.dashboard', compact('category', 'user', 'product', 'transaction'));
     }
 }
