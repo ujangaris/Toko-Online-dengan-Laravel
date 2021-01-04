@@ -2,13 +2,15 @@
 
 use RealRashid\SweetAlert\Facades\Alert;
 
-Route::get('/', function () {
-    Alert::success('hello');
-    return view('welcome');
-    /* $pdf = App::make('dompdf.wrapper');
-    $pdf->loadHTML('<h1>Test</h1>');
-    return $pdf->stream();*/
-});
+Route::get('/', 'homepage\BerandaController@index');
+// Route::get('/', function () {
+//     Alert::success('hello');
+//     return view('welcome');
+//     /* $pdf = App::make('dompdf.wrapper');
+//     $pdf->loadHTML('<h1>Test</h1>');
+//     return $pdf->stream();*/
+// });
+
 
 Auth::routes();
 
