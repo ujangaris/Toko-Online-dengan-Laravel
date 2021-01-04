@@ -13,4 +13,11 @@ class BerandaController extends Controller
         $products = Product::take(8)->orderBy('id', 'DESC')->get();
         return view('homepage.homepage', compact('title', 'products'));
     }
+
+    public function product()
+    {
+        $title = "All Product";
+        $products = Product::orderBy('id', 'DESC')->paginate(2);
+        return view('homepage.product', compact('title', 'products'));
+    }
 }
