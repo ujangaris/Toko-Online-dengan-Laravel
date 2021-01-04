@@ -4,11 +4,13 @@ namespace App\Http\Controllers\homepage;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Product;
 
 class BerandaController extends Controller
 {
     public function index()
-    {
-        return view('homepage.homepage',['title' =>'Toko Online' ]);
+    {   $title = "Toko Online";
+        $products = Product::take(8)->orderBy('id', 'DESC')->get();
+        return view('homepage.homepage', compact('title', 'products'));
     }
 }
