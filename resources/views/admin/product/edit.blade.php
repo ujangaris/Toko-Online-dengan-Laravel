@@ -47,7 +47,7 @@
                             selected = "selected"
                         @endif
                         value="{{ $category->id }}">{{ $category->name }}</option>
-                            @foreach($category->children as $sub->id)
+                            @foreach($category->children as $sub)
                                 <option
                                 @if($sub->id ==$product->category_id)
                                         selected = "selected"

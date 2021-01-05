@@ -112,12 +112,12 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->description = $request->description;
         $product->stock = $request->stock;
-        $product->weight = $request->weight;
         $product->price = $request->price;
         $product->category_id = $request->category_id;
         $product->user_id = Auth::user()->id;
+        $product->weight = $request->weight;
         $product->save();
-        Alert::success('', 'Product Berhasil di Tambahkan');
+        Alert::success('', 'Product Berhasil di Update');
         return redirect('admin/product');
     }
 

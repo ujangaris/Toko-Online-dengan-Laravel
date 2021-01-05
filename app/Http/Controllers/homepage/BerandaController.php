@@ -2,22 +2,32 @@
 
 namespace App\Http\Controllers\homepage;
 
+use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Product;
 
 class BerandaController extends Controller
 {
+    protected $category;
+    public function __construct()
+    {
+        $this->category = Category::where('parent_id', null)->get();//parent_id tidak null maka diambildatanya
+    }
+
     public function index()
-    {   $title = "Toko Online";
+    {
+        $category = $this->category;
+        $title = "Toko Online";
         $products = Product::take(8)->orderBy('id', 'DESC')->get();
-        return view('homepage.homepage', compact('title', 'products'));
+        return view('homepage.homepage', compact('title', 'products', 'category'));
     }
 
     public function product()
     {
+        $category = $this->category;
         $title = "All Product";
-        $products = Product::orderBy('id', 'DESC')->paginate(2);
-        return view('homepage.product', compact('title', 'products'));
+        $products = Product::orderBy('id', 'DESC')->paginate(4);
+        return view('homepage.product', compact('title', 'products', 'category'));
     }
 }
