@@ -64,6 +64,7 @@
       <div id="content">
           @yield('content')
       </div>
+        @include('sweetalert::alert')
 
       @include('homepage.layouts.partials.footer')
     </div>

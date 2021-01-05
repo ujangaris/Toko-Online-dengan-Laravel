@@ -101,3 +101,9 @@ Laravel Toko Online adalah materi pembelajaran dari https://belajarphp.net
 ## User
 
 - [php artisan make:controller UserController](Membuat Controller User)
+
+## Halaman Register Member dan supplier
+
+- [php artisan make:controller AuthController](Membuat Controller Register dan Login)
+
+

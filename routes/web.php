@@ -8,6 +8,8 @@ Route::get('/category/{slug}', 'homepage\BerandaController@productbycategory')->
 Route::get('/product/detail/{slug}', 'homepage\BerandaController@detail');
 Route::get('/supplier', 'homepage\BerandaController@supplier');
 Route::get('/supplier/{id}', 'homepage\BerandaController@productbysupplier');
+Route::get('/auth/register', 'AuthController@register');
+Route::post('/auth/register', 'AuthController@store')->name('home.register');
 // Route::get('/', function () {
 //     Alert::success('hello');
 //     return view('welcome');
