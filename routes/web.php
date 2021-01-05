@@ -5,6 +5,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 Route::get('/', 'homepage\BerandaController@index');
 Route::get('/product', 'homepage\BerandaController@product');
 Route::get('/category/{slug}', 'homepage\BerandaController@productbycategory')->name('category.product');
+Route::get('/product/detail/{slug}', 'homepage\BerandaController@detail');
 // Route::get('/', function () {
 //     Alert::success('hello');
 //     return view('welcome');

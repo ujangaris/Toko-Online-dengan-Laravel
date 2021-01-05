@@ -13,7 +13,7 @@
 
                   <div class="col-lg-3 col-md-4">
                     <div class="product">
-                      <div class="image"><a href="shop-detail.html"><img src="{{ url($product->photo) }}" alt="" class="img-fluid image1"></a></div>
+                      <div class="image"><a href="{{ url('product/detail/'.$product->slug) }}"><img src="{{ url($product->photo) }}" alt="" class="img-fluid image1"></a></div>
                       <div class="text">
                         <h3 class="h5"><a href="shop-detail.html">{{ $product->name }}</a></h3>
                         <p class="price">Rp. {{ number_format($product->price,0,",",".") }}</p>

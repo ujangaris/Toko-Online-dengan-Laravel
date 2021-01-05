@@ -42,4 +42,12 @@ class BerandaController extends Controller
         $products = Product::orderBy('id', 'DESC')->where('category_id', $id)->get();
         return view('homepage.productbycategory', compact('title', 'products', 'category', 'name'));
     }
+
+    public function detail($slug)
+    {
+        $products = Product::where('slug', $slug)->first();
+        $category = $this->category;
+        return view('homepage.detail', compact('products', 'category'));
+
+    }
 }
