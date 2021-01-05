@@ -6,6 +6,7 @@ use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Product;
+use App\User;
 
 class BerandaController extends Controller
 {
@@ -49,5 +50,13 @@ class BerandaController extends Controller
         $category = $this->category;
         return view('homepage.detail', compact('products', 'category'));
 
+    }
+
+    public function supplier()
+    {
+        $category = $this->category;
+        $users = User::orderBy('id', 'DESC')->where('status', 1)->where('role', '!=', 'member')->get();
+
+        return view('homepage.supplier',compact('category', 'users'));
     }
 }

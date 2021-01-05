@@ -50,7 +50,7 @@
                             <select class="bs-select">
                                 @for($i = 0; $i <= $products->stock; $i++)
 
-                                    <option value="small">{{ $i++ }}</option>
+                                    <option value="small">{{ $i }}</option>
                                 @endfor
                             </select>
                         </div>
