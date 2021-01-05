@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row bar">
         <div class="col-md-12">
-              <p class="text-muted lead text-center">In our Ladies department we offer wide selection of the best products we have found and carefully selected worldwide. Pellentesque habitant morbi tristique senectus et netuss.</p>
+              <p class="text-muted lead text-center">Jual Komputer dan Gadget Terlengkap.</p>
               <div class="products-big">
                 <div class="row products">
                     @foreach($products as $product)

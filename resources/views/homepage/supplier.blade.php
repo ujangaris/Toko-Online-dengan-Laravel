@@ -30,8 +30,8 @@
 
                 <div class="col-md-2 col-sm-3">
                     <div data-animate="fadeInUp" class="team-member">
-                        <div class="image"><a href="team-member.html"><img src="{{ url($user->photo) }}" alt="" class="img-fluid rounded-circle"></a></div>
-                        <h3><a href="team-member.html">{{ $user->name }}</a></h3>
+                        <div class="image"><a href="{{ url('supplier/'.$user->id) }}"><img src="{{ url($user->photo) }}" alt="" class="img-fluid rounded-circle"></a></div>
+                        <h3><a href="{{ url('penjual/'.$user->id) }}">{{ $user->name }}</a></h3>
                         <p class="role">{{ Date('d/m/Y', strtotime($user->created_at)) }}</p>
                     </div>
                 </div>

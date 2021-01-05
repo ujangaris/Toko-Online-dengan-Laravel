@@ -7,6 +7,7 @@ Route::get('/product', 'homepage\BerandaController@product');
 Route::get('/category/{slug}', 'homepage\BerandaController@productbycategory')->name('category.product');
 Route::get('/product/detail/{slug}', 'homepage\BerandaController@detail');
 Route::get('/supplier', 'homepage\BerandaController@supplier');
+Route::get('/supplier/{id}', 'homepage\BerandaController@productbysupplier');
 // Route::get('/', function () {
 //     Alert::success('hello');
 //     return view('welcome');

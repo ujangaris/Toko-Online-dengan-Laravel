@@ -59,4 +59,12 @@ class BerandaController extends Controller
 
         return view('homepage.supplier',compact('category', 'users'));
     }
+
+    public function productbysupplier($id)
+    {
+        $category = $this->category;
+        $user = User::find($id);
+        $products = $user->product;
+        return view('homepage.productbysupplier', compact('products', 'category', 'user'));
+    }
 }
