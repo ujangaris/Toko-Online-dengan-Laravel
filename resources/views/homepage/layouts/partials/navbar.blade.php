@@ -18,11 +18,11 @@
                           @foreach($category as  $value)
 
                           <div class="col-md-6 col-lg-3">
-                              <h5>{{ $value->name }}</h5>
+                              <h5><a href="{{ url('category/'.$value->slug) }}">{{ $value->name }}</a></h5>
                             <ul class="list-unstyled mb-3">
                                 @foreach($value->children as $sub)
                                     <li class="nav-item">
-                                        <a href="index.html" class="nav-link">{{ $sub->name }}</a>
+                                        <a href="{{ url('category/'.$sub->slug) }}" class="nav-link">{{ $sub->name }}</a>
                                     </li>
                                 @endforeach
 

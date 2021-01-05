@@ -25,9 +25,21 @@ class BerandaController extends Controller
 
     public function product()
     {
+
         $category = $this->category;
         $title = "All Product";
         $products = Product::orderBy('id', 'DESC')->paginate(4);
         return view('homepage.product', compact('title', 'products', 'category'));
+    }
+
+    public function productbycategory($slug)
+    {
+        $categorys = Category::where('slug', $slug)->first();
+        $id       = $categorys->id;
+        $category = $this->category;
+        $title = "Product Category";
+        $name       = $categorys->name;
+        $products = Product::orderBy('id', 'DESC')->where('category_id', $id)->get();
+        return view('homepage.productbycategory', compact('title', 'products', 'category', 'name'));
     }
 }
