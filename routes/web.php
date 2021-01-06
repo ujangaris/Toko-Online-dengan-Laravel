@@ -11,6 +11,7 @@ Route::get('/supplier/{id}', 'homepage\BerandaController@productbysupplier');
 Route::get('/auth/register', 'AuthController@register');
 Route::post('/auth/register', 'AuthController@store')->name('home.register');
 Route::get('/verifikasi/register/{token}', 'AuthController@verif');
+Route::post('/auth/login', 'AuthController@login');
 // Route::get('/', function () {
 //     Alert::success('hello');
 //     return view('welcome');

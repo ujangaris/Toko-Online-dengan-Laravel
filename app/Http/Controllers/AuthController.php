@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -60,5 +61,29 @@ class AuthController extends Controller
         Alert::success(' ', 'Verifikasi Sukses Silahkan login!');
 
         return redirect('auth/register');
+    }
+
+    public function login(Request $request)
+    {
+        $email = $request->email;
+        $password = $request->password;
+
+        if(Auth::attempt(['email' => $email, 'password' => $password])){
+            $cek  = User::where('id', Auth::user()->id)->first();
+            if($cek->status == 0){
+                // echo "Maaf Akun belom diverifikasi";
+                Alert::success(' ', 'Maaf Akun belom diverifikas!');
+                Auth::logout();//jika salah akan otomatis terlogout
+                return redirect('auth/register');
+            }else{
+                Alert::success(' ', 'Anda Berhasil login!');
+                return redirect('/');
+            }
+
+        }else{
+            Alert::warning(' ', 'Email atau Password tidak sesuai!');
+            return redirect()->back();
+        }
+        // echo Auth::user()->name;
     }
 }

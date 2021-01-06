@@ -17,7 +17,7 @@
                   <li class="list-inline-item"><a href="#"><i class="fa fa-phone"></i></a></li>
                   <li class="list-inline-item"><a href="#"><i class="fa fa-envelope"></i></a></li>
                 </ul>
-                <div class="login"><a href="#" data-toggle="modal" data-target="#login-modal" class="login-btn"><i class="fa fa-sign-in"></i><span class="d-none d-md-inline-block">Sign In</span></a><a href="customer-register.html" class="signup-btn"><i class="fa fa-user"></i><span class="d-none d-md-inline-block">Sign Up</span></a></div>
+                <div class="login"><a href="#" data-toggle="modal" data-target="#login-modal" class="login-btn"><i class="fa fa-sign-in"></i><span class="d-none d-md-inline-block">Sign In</span></a><a href="{{ url('auth/register') }}" class="signup-btn"><i class="fa fa-user"></i><span class="d-none d-md-inline-block">Sign Up</span></a></div>
                 <ul class="social-custom list-inline">
                   <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
                   <li class="list-inline-item"><a href="#"><i class="fa fa-google-plus"></i></a></li>
@@ -35,23 +35,24 @@
         <div role="document" class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 id="login-modalLabel" class="modal-title">Customer Login</h4>
+              <h4 id="login-modalLabel" class="modal-title"> Login</h4>
               <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
             </div>
             <div class="modal-body">
-              <form action="customer-orders.html" method="get">
+              <form action="{{ url('auth/login') }}" method="POST">
+                {{ @csrf_field() }}
                 <div class="form-group">
-                  <input id="email_modal" type="text" placeholder="email" class="form-control">
+                  <input id="email_modal" type="text" placeholder="email" name="email" class="form-control" value="{{ old('email') }}">
                 </div>
                 <div class="form-group">
-                  <input id="password_modal" type="password" placeholder="password" class="form-control">
+                  <input id="password_modal" type="password" placeholder="password" name="password" class="form-control">
                 </div>
                 <p class="text-center">
                   <button class="btn btn-template-outlined"><i class="fa fa-sign-in"></i> Log in</button>
                 </p>
               </form>
-              <p class="text-center text-muted">Not registered yet?</p>
-              <p class="text-center text-muted"><a href="customer-register.html"><strong>Register now</strong></a>! It is easy and done in 1 minute and gives you access to special discounts and much more!</p>
+              <p class="text-center text-muted">Belum punya akun?</p>
+              <p class="text-center text-muted"><a href="{{ url('auth/register') }}"><strong>Register now</strong></a></p>
             </div>
           </div>
         </div>
