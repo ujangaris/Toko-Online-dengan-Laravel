@@ -8,10 +8,11 @@
                 </li>
                 <li class="nav-item dropdown menu-large"><a href="{{ url('/product') }}" >Product</a>
                 </li>
+
                 <!-- ========== FULL WIDTH MEGAMENU ==================-->
                 <li class="nav-item dropdown menu-large"><a href="{{ url('supplier') }}" data-hover="dropdown" data-delay="200" ">Supplier </a>
                 </li>
-                      <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" data-hover="dropdown" data-delay="200" class="dropdown-toggle">Category <b class="caret"></b></a>
+                <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" data-hover="dropdown" data-delay="200" class="dropdown-toggle">Category <b class="caret"></b></a>
                   <ul class="dropdown-menu megamenu">
                     <li>
                       <div class="row">
@@ -33,6 +34,11 @@
                     </li>
                   </ul>
                 </li>
+                @if(Auth::user())
+
+                <li class="nav-item  menu-large"><a href="{{ Auth::logout() }}" >Logout</a>
+                </li>
+                @endif
                 <!-- ========== FULL WIDTH MEGAMENU END ==================-->
 
               </ul>
