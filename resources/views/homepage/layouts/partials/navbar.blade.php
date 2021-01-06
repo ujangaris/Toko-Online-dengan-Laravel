@@ -34,15 +34,7 @@
                   </ul>
                 </li>
                 <!-- ========== FULL WIDTH MEGAMENU END ==================-->
-                <!-- ========== Contact dropdown ==================-->
-                <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">Contact <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li class="dropdown-item"><a href="contact.html" class="nav-link">Contact option 1</a></li>
-                    <li class="dropdown-item"><a href="contact2.html" class="nav-link">Contact option 2</a></li>
-                    <li class="dropdown-item"><a href="contact3.html" class="nav-link">Contact option 3</a></li>
-                  </ul>
-                </li>
-                <!-- ========== Contact dropdown end ==================-->
+
               </ul>
             </div>
             <div id="search" class="collapse clearfix">

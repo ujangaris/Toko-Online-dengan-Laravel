@@ -10,6 +10,7 @@ Route::get('/supplier', 'homepage\BerandaController@supplier');
 Route::get('/supplier/{id}', 'homepage\BerandaController@productbysupplier');
 Route::get('/auth/register', 'AuthController@register');
 Route::post('/auth/register', 'AuthController@store')->name('home.register');
+Route::get('/verifikasi/register/{token}', 'AuthController@verif');
 // Route::get('/', function () {
 //     Alert::success('hello');
 //     return view('welcome');
