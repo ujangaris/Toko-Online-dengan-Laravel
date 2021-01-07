@@ -6,12 +6,16 @@ Route::get('/', 'homepage\BerandaController@index');
 Route::get('/product', 'homepage\BerandaController@product');
 Route::get('/category/{slug}', 'homepage\BerandaController@productbycategory')->name('category.product');
 Route::get('/product/detail/{slug}', 'homepage\BerandaController@detail');
+//
 Route::get('/supplier', 'homepage\BerandaController@supplier');
 Route::get('/supplier/{id}', 'homepage\BerandaController@productbysupplier');
 Route::get('/auth/register', 'AuthController@register');
 Route::post('/auth/register', 'AuthController@store')->name('home.register');
 Route::get('/verifikasi/register/{token}', 'AuthController@verif');
 Route::post('/auth/login', 'AuthController@login');
+// 'Cart
+
+
 // Route::get('/', function () {
 //     Alert::success('hello');
 //     return view('welcome');

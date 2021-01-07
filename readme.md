@@ -106,4 +106,28 @@ Laravel Toko Online adalah materi pembelajaran dari https://belajarphp.net
 
 - [php artisan make:controller AuthController](Membuat Controller Register dan Login)
 
+## Register | Kirim Pesan Verifikasi Akun ke Email 
 
+- register dan verifikasi dengan akun email via google
+
+    MAIL_DRIVER=smtp
+    MAIL_HOST=smtp.googlemail.com
+    MAIL_PORT=587
+    MAIL_USERNAME=ujangaja@gmail.com
+    MAIL_PASSWORD=masukan password email asli
+    MAIL_ENCRYPTION=tls
+
+## Halaman Register Member dan supplier
+
+- [composer require gloudemans/shoppingcart](https://github.com/Crinsane/LaravelShoppingcart )
+- If you're using Laravel 5.5, this is all there is to do.
+
+    Should you still be on version 5.4 of Laravel, the final steps for you are to add the service provider of the package and alias the package. To do this open your config/app.php file.
+
+    Add a new line to the providers array:
+
+    Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class
+    
+    And optionally add a new line to the aliases array:
+
+    'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,

@@ -77,7 +77,8 @@ class AuthController extends Controller
                 return redirect('auth/register');
             }else{
                 Alert::success(' ', 'Anda Berhasil login!');
-                return redirect('/');
+                return redirect()->back();
+
             }
 
         }else{
