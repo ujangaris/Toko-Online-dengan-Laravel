@@ -157,30 +157,19 @@
                 </div>
                 <div class="panel-body">
                     <ul class="nav nav-pills flex-column text-sm category-menu">
-                    <li class="nav-item"><a href="shop-category.html" class="nav-link d-flex align-items-center justify-content-between"><span>Men </span><span class="badge badge-secondary">42</span></a>
+                    @foreach($category as $value)
+
+                    <li class="nav-item"><a href="{{ url('category/'.$value->slug) }}" class="nav-link d-flex align-items-center justify-content-between"><span>{{ $value->name }}</span><span class="badge badge-secondary">{{ count($value->children) }}</span></a>
+                        @foreach($value->children as $sub)
+
                         <ul class="nav nav-pills flex-column">
-                        <li class="nav-item"><a href="shop-category.html" class="nav-link">T-shirts</a></li>
-                        <li class="nav-item"><a href="shop-category.html" class="nav-link">Shirts</a></li>
-                        <li class="nav-item"><a href="shop-category.html" class="nav-link">Pants</a></li>
-                        <li class="nav-item"><a href="shop-category.html" class="nav-link">Accessories</a></li>
+                        <li class="nav-item"><a href="{{ url('category/'.$sub->slug) }}" class="nav-link">{{ $sub->name }}</a></li>
                         </ul>
+                        @endforeach
+
                     </li>
-                    <li class="nav-item"><a href="shop-category.html" class="nav-link active d-flex align-items-center justify-content-between"><span>Ladies  </span><span class="badge badge-light">123</span></a>
-                        <ul class="nav nav-pills flex-column">
-                        <li class="nav-item"><a href="shop-category.html" class="nav-link">T-shirts</a></li>
-                        <li class="nav-item"><a href="shop-category.html" class="nav-link">Skirts</a></li>
-                        <li class="nav-item"><a href="shop-category.html" class="nav-link">Pants</a></li>
-                        <li class="nav-item"><a href="shop-category.html" class="nav-link">Accessories</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a href="shop-category.html" class="nav-link d-flex align-items-center justify-content-between"><span>Kids  </span><span class="badge badge-secondary">11</span></a>
-                        <ul class="nav nav-pills flex-column">
-                        <li class="nav-item"><a href="shop-category.html" class="nav-link">T-shirts</a></li>
-                        <li class="nav-item"><a href="shop-category.html" class="nav-link">Skirts</a></li>
-                        <li class="nav-item"><a href="shop-category.html" class="nav-link">Pants</a></li>
-                        <li class="nav-item"><a href="shop-category.html" class="nav-link">Accessories</a></li>
-                        </ul>
-                    </li>
+                    @endforeach
+
                     </ul>
                 </div>
                 </div>
