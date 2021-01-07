@@ -33,7 +33,8 @@
                 </div>
                 <div class="col-sm-6">
                   <div class="box">
-                    <form>
+                    <form method="POST" action="{{ url('cart') }}">
+                        {{ @csrf_field() }}
                         <p class="price">RP. {{ number_format($products->price,0 ,",", ".") }}</p>
 
                         <p class="text-center">Weight : {{ $products->weight }}</p>
@@ -47,17 +48,18 @@
                         </div>
                         <br>
                         <div class="sizes">
-                            <select class="bs-select">
-                                @for($i = 0; $i <= $products->stock; $i++)
+                            <select class="bs-select" name="qty">
+                                @for($i = 1; $i <= $products->stock; $i++)
 
-                                    <option value="small">{{ $i }}</option>
+                                    <option value="{{ $i }}">{{ $i }}</option>
                                 @endfor
                             </select>
                         </div>
                         <br>
+                        <input type="hidden" name="id" value="{{ $products->id }}">
                       <p class="text-center">
                           @if(Auth::user())
-                            <a href="{{ url('cart/'.$products->id) }}" class="btn btn-template-outlined"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                            <button type="submit" class="btn btn-template-outlined"><i class="fa fa-shopping-cart"></i> Add to cart</button>
                           @else
                             <small>Login dulu untuk melakukan transaksi</small>
                           @endif
