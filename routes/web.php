@@ -14,7 +14,7 @@ Route::post('/auth/register', 'AuthController@store')->name('home.register');
 Route::get('/verifikasi/register/{token}', 'AuthController@verif');
 Route::post('/auth/login', 'AuthController@login');
 // 'Cart
-
+Route::get('/cart/{id}', 'CartController@index');
 
 // Route::get('/', function () {
 //     Alert::success('hello');
