@@ -6,12 +6,12 @@
     <div class="container">
         <div class="row d-flex align-items-center flex-wrap">
         <div class="col-md-7">
-            <h1 class="h2">Shopping Cart</h1>
+            <h1 class="h2">Keranjang Belanja</h1>
         </div>
         <div class="col-md-5">
             <ul class="breadcrumb d-flex justify-content-end">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active">Shopping Cart</li>
+            <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
+            <li class="breadcrumb-item active">Keranjang Belanja</li>
             </ul>
         </div>
         </div>
@@ -21,7 +21,7 @@
     <div class="container">
         <div class="row bar">
         <div class="col-lg-12">
-            <p class="text-muted lead">You currently have 3 item(s) in your cart.</p>
+            <p class="text-muted lead">You currently have {{ Cart::count() }} item(s) in your cart.</p>
         </div>
         <div id="basket" class="col-lg-9">
             <div class="box mt-0 pb-0 no-horizontal-padding">
@@ -51,8 +51,8 @@
                                 <td>{{ $row->price }}</td>
                                 <td>{{ $row->total }}</td>
                                 <td>
-                                    <button style="border: none;background: none;" type="submit"><i class="fa fa-refresh"></i></button>
-                                    <a href="#"><i class="fa fa-trash-o"></i></a>
+                                    <button style="border: none;background: none;" type="submit"><i class="fa fa-refresh btn btn-sm btn-primary"></i></button>
+                                    <a href="{{ url('cart/delete/'.$row->rowId) }}"><i class="fa fa-trash-o btn btn-sm btn-danger"></i></a>
                                 </td>
                             </tr>
                         @endforeach

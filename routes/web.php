@@ -17,6 +17,7 @@ Route::post('/auth/login', 'AuthController@login');
 Route::post('/cart', 'CartController@index');
 Route::get('/keranjang', 'CartController@keranjang');
 Route::post('/cart/update', 'CartController@update');
+Route::get('/cart/delete/{rowid}', 'CartController@delete');
 
 // Route::get('/', function () {
 //     Alert::success('hello');

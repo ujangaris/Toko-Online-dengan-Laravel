@@ -7,6 +7,8 @@ use App\Category;
 use Illuminate\Http\Request;
 use Cart;
 use Auth;
+use Alert;
+
 
 class CartController extends Controller
 {
@@ -34,6 +36,14 @@ class CartController extends Controller
     {
         Cart::update($request->rowid, $request->qty);
         $category = $this->category;
+        Alert::success('', 'Keranjang Belanja Berhasil di perbaharui');
+        return redirect('keranjang');
+    }
+    public function delete( $rowid)
+    {
+        Cart::remove($rowid);
+        $category = $this->category;
+        Alert::success('', 'Keranjang Belanja Berhasil di perbaharui');
         return redirect('keranjang');
     }
 }
