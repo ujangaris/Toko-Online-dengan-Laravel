@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Product;
 use App\User;
+use Auth;
 
 class BerandaController extends Controller
 {

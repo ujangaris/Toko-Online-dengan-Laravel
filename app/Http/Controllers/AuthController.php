@@ -2,89 +2,80 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
 use Illuminate\Http\Request;
+use App\Product;
+use App\Category;
 use App\User;
-use Illuminate\Support\Facades\Hash;
+use Mail;
+use Auth;
+
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
-use RealRashid\SweetAlert\Facades\Alert;
-
+use Alert;
 
 class AuthController extends Controller
 {
     protected $category;
     public function __construct()
     {
-        $this->category = Category::where('parent_id', null)->get(); //parent_id tidak null maka diambildatanya
+        $this->category = Category::where('parent_id', null)->get();
     }
     public function register()
     {
         $category = $this->category;
         return view('homepage.register', compact('category'));
     }
-
     protected function store(Request $data)
     {
-        $remember_token= base64_encode($data['email']);
-        $mydata =[
+        $remember_token = base64_encode($data['email']);
+        $mydata =  [
             'name' => $data['name'],
             'email' => $data['email'],
-            'username' => $data['username'],
-            'address' => $data['address'],
-            'phone' => $data['phone'],
-            'gender' => $data['gender'],
-            'birthday' => $data['birthday'],
-            'role' => $data['role'],
-            'password' => Hash::make($data['password']),
+            'username'  => $data['username'],
+            'address'   => $data['address'],
+            'phone'     => $data['phone'],
+            'gender'    => $data['gender'],
+            'birthday'  => $data['birthday'],
+            'role'      => $data['role'],
+            'status'    => "0",
+            'password' => bcrypt($data['password']),
             'remember_token' => $remember_token,
         ];
         User::create($mydata);
-        Mail::send('home', array('firstname' => $data['name'], 'remember_token' => $remember_token), function($pesan) use ($data){
+        Mail::send('home', array('firstname' => $data['name'], 'remember_token' => $remember_token), function ($pesan) use ($data) {
             $pesan->to($data['email'], 'Verifikasi')->subject('Verifikasi Email');
-            $pesan->from('ujangaja@gmail.com', 'Verifikasi Akun Email Anda');
+            $pesan->from('didikprab@gmail.com', 'Verifikasi Akun email anda');
         });
-        Alert::success(' ', 'Pendaftaran  Berhasil!');
-
+        Alert::success('', 'Pendaftaran selesai');
         return redirect('/');
     }
-
     public function verif($token)
     {
         $user = User::where('remember_token', $token)->first();
-        if($user->status == "0"){
+        if ($user->status == "0") {
             $user->status = "1";
         }
         $user->save();
-        Alert::success(' ', 'Verifikasi Sukses Silahkan login!');
-
+        Alert::success('', 'Verifikasi Sukses,silahkan login');
         return redirect('auth/register');
     }
-
     public function login(Request $request)
     {
-        $email = $request->email;
-        $password = $request->password;
+        $email =  $request->email;
+        $pwd   =  $request->password;
 
-        if(Auth::attempt(['email' => $email, 'password' => $password])){
-            $cek  = User::where('id', Auth::user()->id)->first();
-            if($cek->status == 0){
-                // echo "Maaf Akun belom diverifikasi";
-                Alert::success(' ', 'Maaf Akun belom diverifikas!');
-                Auth::logout();//jika salah akan otomatis terlogout
-                return redirect('auth/register');
-            }else{
-                Alert::success(' ', 'Anda Berhasil login!');
+        if (Auth::attempt(['email' => $email, 'password' => $pwd])) {
+            $cek = User::where('id', Auth::user()->id)->first();
+            if ($cek->status == 0) {
+                Auth::logout();
+                Alert::success('', 'Maaf akun belum terverifikasi');
+                return redirect('/');
+            } else {
                 return redirect()->back();
-
             }
-
-        }else{
-            Alert::warning(' ', 'Email atau Password tidak sesuai!');
-            return redirect()->back();
+        } else {
+            Alert::success('', 'Maaf Email atau password tidak sesuai');
+            return redirect('/');
         }
-        // echo Auth::user()->name;
     }
 }

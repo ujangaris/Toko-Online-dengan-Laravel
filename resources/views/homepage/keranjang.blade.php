@@ -25,7 +25,9 @@
         </div>
         <div id="basket" class="col-lg-9">
             <div class="box mt-0 pb-0 no-horizontal-padding">
-                <form method="get" action="shop-checkout1.html">
+
+                <form action="{{ url('cart/update') }}" method="POST">
+                    {{ @csrf_field() }}
                     <div class="table-responsive">
                     <table class="table">
                         <thead>
@@ -43,15 +45,18 @@
                                 {{-- <td><a href="#"><img src="img/detailsquare.jpg" alt="White Blouse Armani" class="img-fluid"></a></td> --}}
                                 <td><a href="#">{{ $row->name }}</a></td>
                                 <td>
-                                <input type="hidden" name="rowId" value="{{ $row->rowId }}" >
-                                <input type="number" value="{{ $row->qty }}" class="form-control">
+                                    <input type="hidden" name="rowid" value="{{ $row->rowId }}" >
+                                    <input type="number" value="{{ $row->qty }}" class="form-control" name="qty">
                                 </td>
                                 <td>{{ $row->price }}</td>
                                 <td>{{ $row->total }}</td>
-                                <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                                <td>
+                                    <button style="border: none;background: none;" type="submit"><i class="fa fa-refresh"></i></button>
+                                    <a href="#"><i class="fa fa-trash-o"></i></a>
+                                </td>
                             </tr>
                         @endforeach
-
+                        </form>
                         </tbody>
                         <tfoot>
                         <tr>
@@ -64,7 +69,6 @@
                     <div class="box-footer d-flex justify-content-between align-items-center">
                     <div class="left-col"><a href="shop-category.html" class="btn btn-secondary mt-0"><i class="fa fa-chevron-left"></i> Continue shopping</a></div>
                     <div class="right-col">
-                        <button class="btn btn-secondary"><i class="fa fa-refresh"></i> Update cart</button>
                         <button type="submit" class="btn btn-template-outlined">Proceed to checkout <i class="fa fa-chevron-right"></i></button>
                     </div>
                     </div>

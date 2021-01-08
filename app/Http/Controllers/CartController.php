@@ -6,6 +6,7 @@ use App\Product;
 use App\Category;
 use Illuminate\Http\Request;
 use Cart;
+use Auth;
 
 class CartController extends Controller
 {
@@ -16,7 +17,7 @@ class CartController extends Controller
     }
     public function index(Request $request)
     {
-        Cart::destroy();/* hidupkan ini untuk menghapus */
+        // Cart::destroy();/* hidupkan ini untuk menghapus */
         $product = Product::find($request->id);
         Cart::add(['id' => $product->id, 'name' => $product->name, 'qty' => $request->qty, 'price' => $product->price]);
         // return Cart::content();/* Menampilkan dalam bentuk json */
@@ -27,5 +28,12 @@ class CartController extends Controller
     {
         $category = $this->category;
         return view('homepage.keranjang', compact('category'));
+    }
+
+    public function update(Request $request)
+    {
+        Cart::update($request->rowid, $request->qty);
+        $category = $this->category;
+        return redirect('keranjang');
     }
 }
