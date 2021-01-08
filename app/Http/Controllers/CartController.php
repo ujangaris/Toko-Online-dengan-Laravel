@@ -46,4 +46,10 @@ class CartController extends Controller
         Alert::success('', 'Keranjang Belanja Berhasil di perbaharui');
         return redirect('keranjang');
     }
+
+    public function formulir()
+    {
+        $category = $this->category;
+        return view('homepage.formulir', compact('category'));
+    }
 }

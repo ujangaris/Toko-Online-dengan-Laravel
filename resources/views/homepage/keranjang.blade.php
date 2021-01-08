@@ -69,7 +69,7 @@
                     <div class="box-footer d-flex justify-content-between align-items-center">
                     <div class="left-col"><a href="shop-category.html" class="btn btn-secondary mt-0"><i class="fa fa-chevron-left"></i> Continue shopping</a></div>
                     <div class="right-col">
-                        <button type="submit" class="btn btn-template-outlined">Proceed to checkout <i class="fa fa-chevron-right"></i></button>
+                        <a href="{{ url('cart/formulir') }}" class="btn btn-template-outlined">Proceed to checkout <i class="fa fa-chevron-right"></i></a>
                     </div>
                     </div>
                 </form>
