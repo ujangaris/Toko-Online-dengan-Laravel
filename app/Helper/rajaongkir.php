@@ -24,7 +24,7 @@ if( !function_exists('city')){
         if ($err) {
             echo "cURL Error #:" . $err;
         } else {
-            echo $response;
+            return $response;
         }
     }
 

@@ -61,7 +61,14 @@
                         <div class="form-group">
                           <label for="company">Kota / Alamat</label>
                           <select name="" class="form-control">
-                              <option value="">Pilih Kota</option>
+                              @php
+                                  $city = city();
+                                  $city = json_decode($city,true);
+                              @endphp
+                              @foreach($city['rajaongkir']['results'] as $citys)
+                              <option value="{{ $citys['city_id'] }}">{{ $citys['city_name'] }}</option>
+
+                              @endforeach
                           </select>
                         </div>
                       </div>
