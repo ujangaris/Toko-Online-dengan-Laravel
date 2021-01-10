@@ -49,7 +49,9 @@ class CartController extends Controller
 
     public function formulir()
     {
-        $category = $this->category;
-        return view('homepage.formulir', compact('category'));
+        // $category = $this->category;
+        // return view('homepage.formulir', compact('category'));
+
+        echo city();
     }
 }

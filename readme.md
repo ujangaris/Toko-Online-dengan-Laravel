@@ -131,3 +131,18 @@ Laravel Toko Online adalah materi pembelajaran dari https://belajarphp.net
     And optionally add a new line to the aliases array:
 
     'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
+
+## Raja Ongkir
+
+- [daftar dan login raja ongkir](https://rajaongkir.com/)
+- pada file composer .json :
+
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files": [
+            "app/Helper/rajaongkir.php"
+        ],
+    setela itu 
+- [composer dump-autoload](Untuk merefres/update composer.json)
