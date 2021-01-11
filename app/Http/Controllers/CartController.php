@@ -53,4 +53,20 @@ class CartController extends Controller
         return view('homepage.formulir', compact('category'));
 
     }
+
+    public function transaction(Request $request)
+    {
+        foreach(Cart::content() as $row){
+            $product = Product::find($row->id);
+            $city = json_decode(City(), true);
+            foreach ($city['rajaongkir']['results'] as $key) {
+                // echo $key['city_id'];
+                if($product->user->address == $key['city_name']){
+                    // echo "Haii";
+                    Cost($key['city_id'], $request->city, $product->weight, $request->eks);
+                    break;
+                }
+            }
+        }
+    }
 }

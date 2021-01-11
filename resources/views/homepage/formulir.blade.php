@@ -26,7 +26,8 @@
         <div id="basket" class="col-lg-9">
             <div class="box mt-0 pb-0 no-horizontal-padding">
 
-                <form method="get" action="shop-checkout2.html">
+                <form method="post" action="{{ url('cart/transaction') }}">
+                    {{ @csrf_field() }}
                   <ul class="nav nav-pills nav-fill">
                     <li class="nav-item"><a href="shop-checkout1.html" class="nav-link active"> <i class="fa fa-map-marker"></i><br>Address</a></li>
                     <li class="nav-item"><a href="#" class="nav-link disabled"><i class="fa fa-truck"></i><br>Delivery Method</a></li>
@@ -58,7 +59,7 @@
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label for="company">Kota / Alamat</label>
-                          <select name="city" class="form-control" onchange="check()" id="city">
+                          <select name="city" class="form-control" onchange="check()" id="city" name="city">
                               @php
                                   $city = city();
                                   $city = json_decode($city,true);
@@ -88,8 +89,8 @@
                             </div>
                             <div class="col-sm-6 col-md-8">
                                 <div class="form-group">
-                                <label for="city">Ekspedisi</label>
-                                <select name="" class="form-control">
+                                <label for="city"  >Ekspedisi</label>
+                                <select name="eks" class="form-control">
                                     <option value="jne">Jalur Nugraha Ekakurir (JNE)</option>
                                     <option value="pos">POS Indonesia (POS)</option>
                                     <option value="tiki">Citra Van Titipan Kilat (TIKI)</option>
