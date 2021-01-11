@@ -1,10 +1,15 @@
 <?php
 if( !function_exists('city')){
-	function city(){
+	function city($id = null){
+        if($id < 1){
+            $uri = "https://api.rajaongkir.com/starter/city";
+        }else{
+            $uri = "https://api.rajaongkir.com/starter/city?id=" . $id;
+        }
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.rajaongkir.com/starter/city",
+            CURLOPT_URL => $uri,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,

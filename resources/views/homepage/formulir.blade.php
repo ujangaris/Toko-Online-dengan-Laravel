@@ -49,18 +49,16 @@
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-sm-12">
+                      <div class="col-sm-6">
                         <div class="form-group">
                           <label for="name">Name</label>
                           <input id="name" name="name" type="text" class="form-control" placeholder="Masukan Nama Penerima..">
                         </div>
                       </div>
-                    </div>
-                    <div class="row">
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label for="company">Kota / Alamat</label>
-                          <select name="" class="form-control">
+                          <select name="city" class="form-control" onchange="check()" id="city">
                               @php
                                   $city = city();
                                   $city = json_decode($city,true);
@@ -70,6 +68,14 @@
 
                               @endforeach
                           </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="company">Kota / Alamat</label>
+                            <input  name="name" type="text" class="form-control" value="">
                         </div>
                       </div>
                       <div class="col-sm-6">
@@ -145,3 +151,23 @@
 
 
 @endsection
+
+@push('scripts')
+
+<script>
+    function check(){
+        /* var id= $('#city').val();
+        alert(id)//menampilkan id dengan allert */
+        var id = $('#city').val();
+        $.ajax({
+            type:"GET",
+            url : "{{ url('citybyid/') }}/"+id,
+            dataType    :"JSON",
+            success     : function(data){
+                console.log(data);
+            }
+        });
+    }
+</script>
+
+@endpush

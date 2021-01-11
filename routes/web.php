@@ -30,6 +30,9 @@ Route::get('/cart/formulir', 'CartController@formulir');
 
 
 Auth::routes();
+Route::get('citybyid/{id}', function ($id) {
+    return city($id);
+});
 
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth']], function () {

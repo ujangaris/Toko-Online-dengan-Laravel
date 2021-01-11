@@ -1,3 +1,5 @@
+
+@stack('scripts')
  <script src="{{ asset('homepage/vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('homepage/vendor/popper.js/umd/popper.min.js') }}"> </script>
     <script src="{{ asset('homepage/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
