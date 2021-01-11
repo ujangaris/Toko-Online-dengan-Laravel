@@ -74,12 +74,18 @@
                     <div class="row">
                       <div class="col-sm-6">
                         <div class="form-group">
-                          <label for="company">Kota / Alamat</label>
-                            <input  name="name" type="text" class="form-control" value="">
+                          <label for="company">Provinsi</label>
+                            <input  name="name" type="text" class="form-control" value="" id="provinsi" readonly>
                         </div>
                       </div>
                       <div class="col-sm-6">
                         <div class="row">
+                            <div class="col-sm-6 col-md-4">
+                                <div class="form-group">
+                                <label for="portal_code">Kode POS</label>
+                                <input id="portal_code" name="portal_code" type="number" class="form-control" readonly>
+                                </div>
+                            </div>
                             <div class="col-sm-6 col-md-8">
                                 <div class="form-group">
                                 <label for="city">Ekspedisi</label>
@@ -88,12 +94,6 @@
                                     <option value="pos">POS Indonesia (POS)</option>
                                     <option value="tiki">Citra Van Titipan Kilat (TIKI)</option>
                                 </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-4">
-                                <div class="form-group">
-                                <label for="portal_code">Kode POS</label>
-                                <input id="portal_code" name="portal_code" type="number" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -164,7 +164,9 @@
             url : "{{ url('citybyid/') }}/"+id,
             dataType    :"JSON",
             success     : function(data){
-                console.log(data);
+                // console.log(data);
+                $("#provinsi").val(data.rajaongkir.results.province)
+                $("#portal_code").val(data.rajaongkir.results.postal_code)
             }
         });
     }
