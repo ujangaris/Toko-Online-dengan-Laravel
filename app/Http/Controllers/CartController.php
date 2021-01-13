@@ -59,12 +59,24 @@ class CartController extends Controller
         foreach(Cart::content() as $row){
             $product = Product::find($row->id);
             $city = json_decode(City(), true);
+            $weight = $product->weight * $row->qty;//kalkulasi jumlah barang yang dipesan
             foreach ($city['rajaongkir']['results'] as $key) {
                 // echo $key['city_id'];
                 if($product->user->address == $key['city_name']){
                     // echo "Haii";
-                    Cost($key['city_id'], $request->city, $product->weight, $request->eks);
-                    break;
+                    $cost =Cost($key['city_id'], $request->city, $weight, $request->eks);
+                    $data = json_decode($cost, true);
+                    /* $hasil = $data['rajaongkir']['results'][0]['costs'][0]['cost'][0]['value'];
+
+                    echo $hasil; */
+
+                    Cart::update($row->rowId, ['option' =>[
+                        'code' =>$data['rajaongkir']['results'][0]['code'],
+                        'name' =>$data['rajaongkir']['results'][0]['name'],
+                        'name' =>$data['rajaongkir']['results'][0]['costs'][0]['cost'][0]['value'],
+                        'etd'  =>$data['rajaongkir']['results'][0]['costs'][0]['cost'][0]['etd'],
+                    ]]);
+                    return Cart::content();
                 }
             }
         }

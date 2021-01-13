@@ -65,7 +65,7 @@ if(!function_exists('cost')){
         if ($err) {
             echo "cURL Error #:" . $err;
         } else {
-            echo $response;
+            return $response;
         }
     }
 }
