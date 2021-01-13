@@ -146,3 +146,28 @@ Laravel Toko Online adalah materi pembelajaran dari https://belajarphp.net
         ],
     setela itu 
 - [composer dump-autoload](Untuk merefres/update composer.json)
+
+## Konfigurasi vendor
+
+- [php artisan vendor:publish](Untuk memunculkan konfigurasi vendor)
+
+    atau:
+
+- Configuration
+    To save cart into the database so you can retrieve it later, the package needs to know which database connection to use and what the name of the table is. By default the package will use the default database connection and use a table named shoppingcart. If you want to change these options, you'll have to publish the config file.
+
+    php artisan vendor:publish --provider="Gloudemans\Shoppingcart\ShoppingcartServiceProvider" --tag="config"
+
+- pada config/cart.php agar hitungan paajak tidak terhitung
+
+     /*
+    |--------------------------------------------------------------------------
+    | Default tax rate
+    |--------------------------------------------------------------------------
+    |
+    | This default tax rate will be used when you make a class implement the
+    | Taxable interface and use the HasTax trait.
+    |
+    */
+
+    'tax' => 0, (rubah menjadi 0 agar tidak masuk hitungan pajak)
