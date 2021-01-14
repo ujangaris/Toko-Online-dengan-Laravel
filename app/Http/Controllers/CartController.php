@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Cart;
 use Auth;
 use Alert;
-
+use App\Transaction;
 
 class CartController extends Controller
 {
@@ -66,17 +66,34 @@ class CartController extends Controller
                     // echo "Haii";
                     $cost =Cost($key['city_id'], $request->city, $weight, $request->eks);
                     $data = json_decode($cost, true);
-                    /* $hasil = $data['rajaongkir']['results'][0]['costs'][0]['cost'][0]['value'];
+                    // $hasil = $data['rajaongkir']['results'][0]['costs'][0]['cost'][0]['value'];
 
-                    echo $hasil; */
+                    // echo $hasil;
 
-                    Cart::update($row->rowId, ['option' =>[
+                    Cart::update($row->rowId, ['options' =>[
                         'code' =>$data['rajaongkir']['results'][0]['code'],
                         'name' =>$data['rajaongkir']['results'][0]['name'],
-                        'name' =>$data['rajaongkir']['results'][0]['costs'][0]['cost'][0]['value'],
+                        'value' =>$data['rajaongkir']['results'][0]['costs'][0]['cost'][0]['value'],
                         'etd'  =>$data['rajaongkir']['results'][0]['costs'][0]['cost'][0]['etd'],
                     ]]);
-                    return Cart::content();
+                    // return Cart::content();
+                    $eks = [
+                        'code'  => $row->options->code,
+                        'name'  => $row->options->name,
+                        'value' => $row->options->value,
+                        'etd'  => $row->options->etd,
+                    ];
+                    $transaction = new Transaction;
+                    $transaction->code = date('ymdhis');
+                    $transaction->user_id = Auth::user()->id;
+                    $transaction->qty = $row->qty;
+                    $transaction->subtotal = $row->subtotal;
+                    $transaction->name = $request->name;
+                    $transaction->address = $request->city;
+                    $transaction->portal_code = $request->portal_code;
+                    $transaction->ekspedisi = $eks;
+                    $transaction->product_id = $product->id;
+                    $transaction->save();
                 }
             }
         }

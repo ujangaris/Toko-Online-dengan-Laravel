@@ -39,13 +39,13 @@
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label for="name">Name (Member)</label>
-                          <input id="name" name="name" type="text" class="form-control" value="{{ Auth::user()->name }}" readonly >
+                          <input  type="text" class="form-control" value="{{ Auth::user()->name }}" readonly >
                         </div>
                       </div>
                       <div class="col-sm-6">
                         <div class="form-group">
-                          <label for="name">Email (Member)</label>
-                          <input id="name" name="name" type="text" class="form-control" value="{{ Auth::user()->email }}" readonly>
+                          <label for="email">Email (Member)</label>
+                          <input  type="text" class="form-control" value="{{ Auth::user()->email }}" readonly>
                         </div>
                       </div>
                     </div>
@@ -59,7 +59,7 @@
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label for="company">Kota / Alamat</label>
-                          <select name="city" class="form-control" onchange="check()" id="city" name="city">
+                          <select name="city" class="form-control" onchange="check()" id="city" >
                               @php
                                   $city = city();
                                   $city = json_decode($city,true);
@@ -76,7 +76,7 @@
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label for="company">Provinsi</label>
-                            <input  name="name" type="text" class="form-control" value="" id="provinsi" readonly>
+                            <input  name="address" type="text" class="form-control" value="" id="provinsi" readonly>
                         </div>
                       </div>
                       <div class="col-sm-6">
