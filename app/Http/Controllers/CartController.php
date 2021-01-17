@@ -94,8 +94,19 @@ class CartController extends Controller
                     $transaction->ekspedisi = $eks;
                     $transaction->product_id = $product->id;
                     $transaction->save();
+                    Cart::remove($row->rowId);
                 }
             }
+            if(Cart::count()== 0){
+                return redirect('sds');
+            }
         }
+    }
+
+    public function myorder()
+    {
+        $category = $this->category;
+        $transaction = Transaction::groupBy('code')->orderBy('id', 'DESC')->where('user_id', Auth::user()->id)->get();
+        return view('homepage.myorder', compact('category', 'transaction'));
     }
 }

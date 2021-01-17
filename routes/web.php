@@ -20,6 +20,7 @@ Route::post('/cart/update', 'CartController@update');
 Route::get('/cart/delete/{rowid}', 'CartController@delete');
 Route::get('/cart/formulir', 'CartController@formulir');
 Route::post('/cart/transaction', 'CartController@transaction');
+Route::get('/cart/myorder', 'CartController@myorder');
 
 // Route::get('/', function () {
 //     Alert::success('hello');
