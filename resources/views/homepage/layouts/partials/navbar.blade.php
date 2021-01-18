@@ -39,6 +39,7 @@
                   <ul class="dropdown-menu">
                     <li class="dropdown-item"><a href="{{ url('keranjang')}}" class="nav-link">Keranjang</a></li>
                     <li class="dropdown-item"><a href="{{ url('cart/myorder')}}" class="nav-link">My Order</a></li>
+                    <li class="dropdown-item"><a href="{{ url('/myproduct')}}" class="nav-link">My Product</a></li>
                     <li class="dropdown-item"><a href="{{ url('logout') }}" class="nav-link">Logout</a></li>
                   </ul>
                 </li>

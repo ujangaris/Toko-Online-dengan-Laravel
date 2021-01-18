@@ -118,4 +118,11 @@ class CartController extends Controller
         $transactiondetail = Transaction::orderBy('id', 'DESC')->where('code', $code)->get();
         return view('homepage.detailtransaksi', compact('category','transaction', 'transactiondetail'));
     }
+    public function myproduct()
+    {
+        $category = $this->category;
+
+        $product = Product::where('user_id', Auth::user()->id)->get();
+        return view('homepage.myproduct', compact('product', 'category'));
+    }
 }
