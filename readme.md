@@ -171,3 +171,7 @@ Laravel Toko Online adalah materi pembelajaran dari https://belajarphp.net
     */
 
     'tax' => 0, (rubah menjadi 0 agar tidak masuk hitungan pajak)
+
+## Whatup generator
+
+- [Mengirim konfirmasi pembayran yang terhubung dengan whatsup](https://www.wasap.at/)
