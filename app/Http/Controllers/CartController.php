@@ -125,4 +125,34 @@ class CartController extends Controller
         $product = Product::where('user_id', Auth::user()->id)->get();
         return view('homepage.myproduct', compact('product', 'category'));
     }
+
+    public function addproduct()
+    {
+        $category = $this->category;
+        // $categorys = Category::where('parent_id', null)->get();
+
+        return view('homepage.addproduct', compact('category'));
+    }
+
+
+    public function saveproduct(Request $request)
+    {
+        // dd($request);
+        $file = $request->file('file');
+        $filename = $file->getClientOriginalName();
+        $request->file('file')->move('static/dist/img/', $filename);
+        $product = new Product;
+        $product->slug = $request->slug;
+        $product->photo = 'static/dist/img/' . $filename;
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->stock = $request->stock;
+        $product->weight = $request->weight;
+        $product->price = $request->price;
+        $product->category_id = $request->category_id;
+        $product->user_id = Auth::user()->id;
+        $product->save();
+        Alert::success('', 'Product Berhasil di Tambahkan');
+        return redirect('myproduct');
+    }
 }

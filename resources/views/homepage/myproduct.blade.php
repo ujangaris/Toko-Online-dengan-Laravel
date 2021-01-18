@@ -23,6 +23,8 @@
             <div id="customer-orders" class="col-md-9">
               <p class="text-muted lead">Silahkan Lakukan Pembayaran melalui no Rekening 0123456789,Apabila sudah melalkukan pembayaran silahkan hubungi admin
                 <a href="https://api.whatsapp.com/send?phone=6281289671096&text=Haii%20sayangg" class="btn btn-success">Hubungi Admin</a></p>
+                <a href="{{ url('addproduct') }}" class="btn btn-primary"> Add Product</a><br><br>
+
               <div class="box mt-0 mb-lg-0">
                 <div class="table-responsive">
                   <table class="table table-hover">
@@ -83,5 +85,6 @@
       </div>
 
 @endsection
+
 
 
