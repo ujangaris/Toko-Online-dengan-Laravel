@@ -76,7 +76,7 @@
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label for="company">Provinsi</label>
-                            <input  name="address" type="text" class="form-control" value="" id="provinsi" readonly>
+                            <input  type="text" class="form-control" value="" id="provinsi" readonly>
                         </div>
                       </div>
                       <div class="col-sm-6">

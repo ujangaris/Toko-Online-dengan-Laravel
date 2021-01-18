@@ -21,7 +21,8 @@
         <div class="container">
           <div class="row bar mb-0">
             <div id="customer-orders" class="col-md-9">
-              <p class="text-muted lead">If you have any questions, please feel free to <a href="contact.html">contact us</a>, our customer service center is working for you 24/7.</p>
+              <p class="text-muted lead">Silahkan Lakukan Pembayaran melalui no Rekening 0123456789,Apabila sudah melalkukan pembayaran silahkan hubungi admin
+
               <div class="box mt-0 mb-lg-0">
                 <div class="table-responsive">
                   <table class="table table-hover">
@@ -48,13 +49,13 @@
                             <td>
 
                                 @if($transactions->status == 0)
-                                <a href="{{ url('admin/transaction/'.$transactions->code.'/'.$transactions->status) }}" ><span class="badge badge-danger">Belum</span></a>
+                                <a href="#" ><span class="badge badge-danger">Belum</span></a>
                                 @else
-                                <a href="{{ url('admin/transaction/'.$transactions->code.'/'.$transactions->status) }}" ><span class="badge badge-success">Sudah</span></a>
+                                <a href="#" ><span class="badge badge-success">Sudah</span></a>
                                 @endif
                             </td>
                             <td>
-                                <a href="{{ url('admin/transaction/'.$transactions->code.'/detail/data') }}" class="btn btn-template-outlined btn-sm">Detail</a>
+                                <a href="{{ url('cart/detail/'.$transactions->code) }}" class="btn btn-template-outlined btn-sm">Detail</a>
                             </td>
                         </tr>
                     @endforeach

@@ -21,6 +21,7 @@ Route::get('/cart/delete/{rowid}', 'CartController@delete');
 Route::get('/cart/formulir', 'CartController@formulir');
 Route::post('/cart/transaction', 'CartController@transaction');
 Route::get('/cart/myorder', 'CartController@myorder');
+Route::get('/cart/detail/{code}', 'CartController@detail');
 
 // Route::get('/', function () {
 //     Alert::success('hello');

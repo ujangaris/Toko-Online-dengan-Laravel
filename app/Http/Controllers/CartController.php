@@ -84,7 +84,7 @@ class CartController extends Controller
                         'etd'  => $row->options->etd,
                     ];
                     $transaction = new Transaction;
-                    $transaction->code = date('ymdhis');
+                    $transaction->code = date('ymdhi'). Auth::user()->id;
                     $transaction->user_id = Auth::user()->id;
                     $transaction->qty = $row->qty;
                     $transaction->subtotal = $row->subtotal;
@@ -108,5 +108,14 @@ class CartController extends Controller
         $category = $this->category;
         $transaction = Transaction::groupBy('code')->orderBy('id', 'DESC')->where('user_id', Auth::user()->id)->get();
         return view('homepage.myorder', compact('category', 'transaction'));
+    }
+
+    public function detail($code)
+    {
+        $category = $this->category;
+
+        $transaction = Transaction::groupBy('code')->orderBy('id', 'DESC')->where('code', $code)->first();
+        $transactiondetail = Transaction::orderBy('id', 'DESC')->where('code', $code)->get();
+        return view('homepage.detailtransaksi', compact('category','transaction', 'transactiondetail'));
     }
 }
