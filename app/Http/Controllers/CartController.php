@@ -155,4 +155,13 @@ class CartController extends Controller
         Alert::success('', 'Product Berhasil di Tambahkan');
         return redirect('myproduct');
     }
+
+    public function editproduct($id)
+    {
+        $category = $this->category;
+        $product = Product::find($id);
+        // $categorys = Category::where('parent_id', null)->get();
+
+        return view('homepage.editproduct', compact('product', 'category'));
+    }
 }
