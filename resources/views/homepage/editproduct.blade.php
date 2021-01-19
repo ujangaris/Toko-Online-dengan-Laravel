@@ -26,14 +26,14 @@
                 </p>
               <div class="box mt-0 mb-lg-0">
                 <div class="table-responsive">
-                    <form role="form" action="{{ route('product.update', $product->id) }}" method="POST" enctype="multipart/form-data">
+                    <form role="form" action="{{ url('editproduct') }}" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
-                        {{ method_field('put') }}
                         <div class="box-body">
                             <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" class="form-control"  placeholder="Enter Category" name="name" value="{{ $product->name }}">
                             </div>
+                            <input type="hidden" name="id" value="{{ $product->id }}">
                             <div class="form-group">
                             <label for="slug">Slug</label>
                             <input type="text" class="form-control"  placeholder="Enter Slug" name="slug" value="{{ $product->slug }}">

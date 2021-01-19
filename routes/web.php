@@ -26,6 +26,7 @@ Route::get('/myproduct', 'CartController@myproduct');
 Route::get('/addproduct', 'CartController@addproduct');
 Route::post('/addproduct', 'CartController@saveproduct');
 Route::get('/editproduct/{id}', 'CartController@editproduct');
+Route::post('/editproduct', 'CartController@updateproduct');
 
 // Route::get('/', function () {
 //     Alert::success('hello');

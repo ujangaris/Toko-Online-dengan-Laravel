@@ -164,4 +164,33 @@ class CartController extends Controller
 
         return view('homepage.editproduct', compact('product', 'category'));
     }
+
+
+    public function updateproduct(Request $request)
+    {
+        $id = $request->id;
+        $file = $request->file('file');
+        if ($file) {
+
+            $filename = $file->getClientOriginalName();
+            $request->file('file')->move('static/dist/img/', $filename);
+            $img = 'static/dist/img/' . $filename;
+        } else {
+            $img = $request->tmp_image;
+        }
+
+        $product = Product::find($id);
+        $product->slug = $request->slug;
+        $product->photo = $img;
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->stock = $request->stock;
+        $product->price = $request->price;
+        $product->category_id = $request->category_id;
+        $product->user_id = Auth::user()->id;
+        $product->weight = $request->weight;
+        $product->save();
+        Alert::success('', 'Product Berhasil di Update');
+        return redirect('myproduct');
+    }
 }

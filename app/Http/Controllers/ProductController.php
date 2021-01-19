@@ -102,6 +102,7 @@ class ProductController extends Controller
 
             $filename = $file->getClientOriginalName();
             $request->file('file')->move('static/dist/img/', $filename);
+            $img = 'static/dist/img/' . $filename;
         }else{
             $img = $request->tmp_image;
         }
