@@ -107,4 +107,12 @@ class BerandaController extends Controller
         Alert::success('', 'Profile  berhasil di perbaharui');
         return redirect('myprofil');
     }
+
+    public function logout()
+    {
+        Auth::logout();
+        Alert::success('', 'Berhasil Keluar');
+        return redirect('/');
+
+    }
 }

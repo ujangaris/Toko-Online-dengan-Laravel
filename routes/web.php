@@ -30,6 +30,7 @@ Route::post('/editproduct', 'CartController@updateproduct');
 Route::get('/deleteproduct/{id}', 'CartController@deleteproduct');
 Route::get('/myprofil', 'homepage\BerandaController@myprofil');
 Route::post('/updateprofil', 'homepage\BerandaController@updateprofil');
+Route::get('/logout', 'homepage\BerandaController@logout');
 
 // Route::get('/', function () {
 //     Alert::success('hello');
