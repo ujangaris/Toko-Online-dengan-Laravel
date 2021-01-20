@@ -21,7 +21,7 @@
     <div class="container">
         <div class="row bar">
             <div class="col-md-9" id="customer-orders">
-                <form class="form-horizontal" method="POST" action="{{ url('admin/user/update') }}">
+                <form class="form-horizontal" method="POST" action="{{ url('updateprofil') }}" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <input type="hidden" name="id" value="{{ $user->id }}">
                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">

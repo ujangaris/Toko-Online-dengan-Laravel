@@ -29,6 +29,7 @@ Route::get('/editproduct/{id}', 'CartController@editproduct');
 Route::post('/editproduct', 'CartController@updateproduct');
 Route::get('/deleteproduct/{id}', 'CartController@deleteproduct');
 Route::get('/myprofil', 'homepage\BerandaController@myprofil');
+Route::post('/updateprofil', 'homepage\BerandaController@updateprofil');
 
 // Route::get('/', function () {
 //     Alert::success('hello');

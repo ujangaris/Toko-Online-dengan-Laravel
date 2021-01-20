@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Product;
 use App\User;
 use Auth;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class BerandaController extends Controller
 {
@@ -74,5 +76,35 @@ class BerandaController extends Controller
         $category = $this->category;
         $user = User::where('id', Auth::user()->id)->first();
         return view('homepage.myprofil', compact( 'category', 'user'));
+    }
+
+    public function updateprofil(Request $data)
+    {
+        $file = $data->file('file');
+        if ($file) {
+
+            $filename = $file->getClientOriginalName();
+            $data->file('file')->move('static/dist/img/', $filename);
+            $img = 'static/dist/img/' . $filename;
+        } else {
+            $img = $data->tmp_image;
+        }
+
+        $mydata = ([
+            'name'      => $data['name'],
+            'email'     => $data['email'],
+            'username'  => $data['username'],
+            'address'   => $data['address'],
+            'phone'     => $data['phone'],
+            'gender'    => $data['gender'],
+            'birthday'  => $data['birthday'],
+            'role'      => $data['role'],
+            'photo'     => $img,
+            'status'    => "0",
+            'password'  => bcrypt($data['password']),
+        ]);
+        User::where('id', $data->id)->update($mydata);
+        Alert::success('', 'Profile  berhasil di perbaharui');
+        return redirect('myprofil');
     }
 }
