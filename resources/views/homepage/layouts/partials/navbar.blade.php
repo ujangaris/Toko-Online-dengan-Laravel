@@ -37,6 +37,7 @@
                 @if(Auth::user())
                 <li class="nav-item dropdown"><a style="color: #3aa18c "  href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle"><img class=" rounded-circle" width="15px" src="{{ url(Auth::user()->photo) }}"> {{(Auth::user()->name) }}  <b class="caret"></b></a>
                   <ul class="dropdown-menu">
+                      <li class="dropdown-item"><a href="{{ url('myprofil')}}" class="nav-link">My Account</a></li>
                     <li class="dropdown-item"><a href="{{ url('keranjang')}}" class="nav-link">Keranjang</a></li>
                     <li class="dropdown-item"><a href="{{ url('cart/myorder')}}" class="nav-link">My Order</a></li>
                     <li class="dropdown-item"><a href="{{ url('/myproduct')}}" class="nav-link">My Product</a></li>

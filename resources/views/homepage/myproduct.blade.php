@@ -49,13 +49,10 @@
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->stock }}</td>
                                 <td>{{ $item->user->name }}</td>
-                                <form action="{{ route('product.destroy', $item->id) }}" method="post">
                                 <td>
                                     <a href="{{ url('editproduct/'. $item->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                                    {{ csrf_field() }}
-                                    {{ method_field('delete') }}
-                                        <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
-                                    </form>
+                                    <a href="{{ url('deleteproduct/'. $item->id) }}" class="btn btn-sm btn-danger">Hapus</a>
+
                                 </td>
                             </tr>
                         @endforeach
@@ -72,8 +69,8 @@
                 </div>
                 <div class="panel-body">
                   <ul class="nav nav-pills flex-column text-sm">
-                    <li class="nav-item"><a href="customer-orders.html" class="nav-link active"><i class="fa fa-list"></i> My orders</a></li>
-                    <li class="nav-item"><a href="customer-wishlist.html" class="nav-link"><i class="fa fa-heart"></i> My wishlist</a></li>
+                    <li class="nav-item"><a href="{{ url('cart/myorder') }}" class="nav-link active"><i class="fa fa-list"></i> My orders</a></li>
+                    <li class="nav-item"><a href="{{ url('myproduct') }}" class="nav-link"><i class="fa fa-heart"></i> My Product</a></li>
                     <li class="nav-item"><a href="customer-account.html" class="nav-link"><i class="fa fa-user"></i> My account</a></li>
                     <li class="nav-item"><a href="index.html" class="nav-link"><i class="fa fa-sign-out"></i> Logout</a></li>
                   </ul>

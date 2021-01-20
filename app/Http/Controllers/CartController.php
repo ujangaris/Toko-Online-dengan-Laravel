@@ -193,4 +193,12 @@ class CartController extends Controller
         Alert::success('', 'Product Berhasil di Update');
         return redirect('myproduct');
     }
+
+    public function deleteproduct($id)
+    {
+        $product = Product::findOrFail($id);
+        $product->delete();
+        Alert::success('Success Message', 'Product Berhasil di Hapus');
+        return redirect('myproduct');
+    }
 }

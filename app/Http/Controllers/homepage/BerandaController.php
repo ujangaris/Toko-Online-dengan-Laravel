@@ -68,4 +68,11 @@ class BerandaController extends Controller
         $products = $user->product;
         return view('homepage.productbysupplier', compact('products', 'category', 'user'));
     }
+
+    public function myprofil()
+    {
+        $category = $this->category;
+        $user = User::where('id', Auth::user()->id)->first();
+        return view('homepage.myprofil', compact( 'category', 'user'));
+    }
 }
