@@ -58,7 +58,7 @@ class BerandaController extends Controller
     public function supplier()
     {
         $category = $this->category;
-        $users = User::orderBy('id', 'DESC')->where('status', 1)->where('role', '!=', 'member')->get();
+        $users = User::orderBy('id', 'DESC')->where('status', "1")->where('role', '!=', 'member')->get();
 
         return view('homepage.supplier',compact('category', 'users'));
     }

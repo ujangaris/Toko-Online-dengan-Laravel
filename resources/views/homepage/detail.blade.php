@@ -33,38 +33,36 @@
                 </div>
                 <div class="col-sm-6">
                   <div class="box">
-                    <form method="POST" action="{{ url('cart') }}">
-                        {{ @csrf_field() }}
-                        <p class="price">RP. {{ number_format($products->price,0 ,",", ".") }}</p>
-
-                        <p class="text-center">Weight : {{ $products->weight }}</p>
-                        <p class="text-center">Stock : {{ $products->stock }}</p>
-                        <div class="sizes">
-                            <select class="bs-select">
-                            <option value="small">JNE</option>
-                            <option value="medium">TIKI</option>
-                            <option value="large">Kantor Pos</option>
-                            </select>
-                        </div>
+                    <form action="{{ url('cart') }}" method="POST">
+                      {{ @csrf_field() }}
+                      <p class="price" style="margin:0px 0px;">Rp. {{ number_format($products->price)}}</p>
+                      <br>
+                      @if($products->stock <1 )
+                        <p class="text-center">Habis</p>
+                      @else
+                      <div class="sizes">
+                        <select class="bs-select" name="qty">
+                        <?php
+                        for($i=1;$i <= $products->stock ; $i++){
+                          echo '<option value="'.$i.'">'.$i.'</option>';
+                        }
+                          ?>
+                        </select>
+                        @endif
                         <br>
-                        <div class="sizes">
-                            <select class="bs-select" name="qty">
-                                @for($i = 1; $i <= $products->stock; $i++)
-
-                                    <option value="{{ $i }}">{{ $i }}</option>
-                                @endfor
-                            </select>
-                        </div>
-                        <br>
-                        <input type="hidden" name="id" value="{{ $products->id }}">
+                      </div>
+                      <input type="hidden" name="id" value="<?php echo $products->id;?>">
+                      <br><br>
                       <p class="text-center">
-                          @if(Auth::user())
-                            <button type="submit" class="btn btn-template-outlined"><i class="fa fa-shopping-cart"></i> Add to cart</button>
+                        @if(Auth::user())
+                          @if($products->stock < 1)
+
                           @else
-                            <small>Login dulu untuk melakukan transaksi</small>
+                            <button type="submit" class="btn btn-template-outlined"><i class="fa fa-shopping-cart"></i> Add to cart</button>
                           @endif
-
-
+                        @else
+                        <small>Login dahulu untuk melakukan transaksi</small>
+                        @endif
                       </p>
                     </form>
                   </div>

@@ -26,7 +26,7 @@
         <div id="basket" class="col-lg-9">
             <div class="box mt-0 pb-0 no-horizontal-padding">
 
-                <form method="post" action="{{ url('cart/transaction') }}">
+                <form method="POST" action="{{ url('cart/transaction') }}">
                     {{ @csrf_field() }}
                   <ul class="nav nav-pills nav-fill">
                     <li class="nav-item"><a href="shop-checkout1.html" class="nav-link active"> <i class="fa fa-map-marker"></i><br>Address</a></li>
