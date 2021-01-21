@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Routing\RouteGroup;
 use RealRashid\SweetAlert\Facades\Alert;
 
 Route::get('/', 'homepage\BerandaController@index');
@@ -22,12 +23,18 @@ Route::get('/cart/formulir', 'CartController@formulir');
 Route::post('/cart/transaction', 'CartController@transaction');
 Route::get('/cart/myorder', 'CartController@myorder');
 Route::get('/cart/detail/{code}', 'CartController@detail');
-Route::get('/myproduct', 'CartController@myproduct');
-Route::get('/addproduct', 'CartController@addproduct');
-Route::post('/addproduct', 'CartController@saveproduct');
-Route::get('/editproduct/{id}', 'CartController@editproduct');
-Route::post('/editproduct', 'CartController@updateproduct');
-Route::get('/deleteproduct/{id}', 'CartController@deleteproduct');
+
+Route::group(['middleware' => ['oauth:supplier']], function () {
+
+    // supplier
+    // Route::get('/myproduct', 'CartController@myproduct')->middleware('oauth:suplier');
+    Route::get('/myproduct', 'CartController@myproduct');
+    Route::get('/addproduct', 'CartController@addproduct');
+    Route::post('/addproduct', 'CartController@saveproduct');
+    Route::get('/editproduct/{id}', 'CartController@editproduct');
+    Route::post('/editproduct', 'CartController@updateproduct');
+    Route::get('/deleteproduct/{id}', 'CartController@deleteproduct');
+});
 Route::get('/myprofil', 'homepage\BerandaController@myprofil');
 Route::post('/updateprofil', 'homepage\BerandaController@updateprofil');
 Route::get('/logout', 'homepage\BerandaController@logout');
@@ -51,7 +58,7 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth']], func
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
 
-Route::prefix('admin')->middleware('auth')->group(function(){
+Route::prefix('admin')->middleware('oauth:admin')->group(function(){
     Route::get('/home', 'HomeController@index')->name('home');
 
     Route::get('dashboard', 'HomeController@index');

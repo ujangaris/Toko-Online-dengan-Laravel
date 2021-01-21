@@ -40,7 +40,8 @@
             "App\\": "app/"
         },
         "files": [
-            "app/Helper/rajaongkir.php"
+            "app/Helper/rajaongkir.php",
+            "app/Helper/hakakses.php"
         ],
         "classmap": [
             "database/seeds",

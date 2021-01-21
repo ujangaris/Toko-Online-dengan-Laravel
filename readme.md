@@ -172,6 +172,18 @@ Laravel Toko Online adalah materi pembelajaran dari https://belajarphp.net
 
     'tax' => 0, (rubah menjadi 0 agar tidak masuk hitungan pajak)
 
-## Whatup generator
+## Whatsup generator
 
 - [Mengirim konfirmasi pembayran yang terhubung dengan whatsup](https://www.wasap.at/)
+
+## Membuat Helper Hak Akses
+
+- [php artisan make:middleware Hakakses](Membuat Middleware Hakakses)
+- pada composer.json tambahkan helper yang kita buat:
+    autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files": [
+            "app/Helper/rajaongkir.php",
+            "app/Helper/hakakses.php" "<=>ini adalah nama helper yang kita panggil"
