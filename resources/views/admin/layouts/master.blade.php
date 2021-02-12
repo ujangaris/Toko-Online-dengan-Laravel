@@ -44,7 +44,7 @@
   @include('admin.layouts.partials.footer')
 
   <!-- Control Sidebar -->
-  @include('admin.layouts.partials.sidebar-control')
+  {{-- @include('admin.layouts.partials.sidebar-control') --}}
   <!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->

@@ -1,189 +1,47 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+# Toko Online dengan laravel 5.4
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+### Featur-featur yang terdapat pada aplikasi✨:
 
-## About Laravel Toko Online
-
-Laravel Toko Online adalah materi pembelajaran dari https://belajarphp.net
-
-- [php artisan make:auth](membuat ui login dan register dengan mudah dilaravel)
-## Memasang pakage Sweete Alert
-
-- [composer require realrashid/sweet-alert](https://realrashid.github.io/sweet-alert/install)
-
-- If using laravel < 5.5 include the service provider and alias within config/app.php.
-
-    'providers' => [
-        RealRashid\SweetAlert\SweetAlertServiceProvider::class,
-    ];
-
-    'aliases' => [
-        'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
-    ];
-
-- configuration:
-    Include 'sweetalert::alert' in master layout
-
-        @include('sweetalert::alert')
--run comand :
-        [php artisan sweetalert:publish]
-- Using the Facade
-    First import the SweetAlert facade in your controller.
-
-    use RealRashid\SweetAlert\Facades\Alert;
-
-- [php artisan make:controller ProductController -r](membuat Controller product)
-- [php artisan make:model Product](membuat Model product)
-
-- [php artisan make:migration add_slug_on_products_table --table=products
-](Menambahkan field(slug) baru pada table products)
-
-## menambahkan pakage CKeditor
-- [composer require unisharp/laravel-filemanager](https://unisharp.github.io/laravel-filemanager/installation)
-
-- Publish the package’s config and assets :
-
-    php artisan vendor:publish --tag=lfm_config
-    php artisan vendor:publish --tag=lfm_public
-
-- (optional) Run commands to clear cache :
-
-    php artisan route:clear
-    php artisan config:clear
-
-- Create symbolic link :
-
-    php artisan storage:link
-
-- Added the following code in the web.php file:
-    Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth']], function () {
-    \UniSharp\LaravelFilemanager\Lfm::routes();
-    });
-
-- This is my lfm config i used with Laravel Nova and it works fin
-
-    // Include to pre-defined routes from package or not. Middlewares
-    'use_package_routes' => true,
-
-    // Middlewares which should be applied to all package routes.
-    // For laravel 5.1 and before, remove 'web' from the array.
-    'middlewares' => ['web', 'auth'],
-
-    // The url to this package. Change it if necessary.
-    'url_prefix' => 'laravel-filemanager',
-
-- [php artisan make:model Transaction](membuat model untuk transaction)
-- [php artisan make:controller TransactionController](membuat Controller untuk transaction)
-
--Seting database : config/database.php
-    'mysql' => [
-            'driver' => 'mysql',
-            'prefix_indexes' => true,
-            'strict' => false, bagian ini dari true rubah jadi false
-
-## PDF
-
-- [composer require barryvdh/laravel-dompdf](https://github.com/barryvdh/laravel-dompdf)
-
-- After updating composer, add the ServiceProvider to the providers array in config/app.php
-
-    Barryvdh\DomPDF\ServiceProvider::class,
-- You can optionally use the facade for shorter code. Add this to your facades:
-    
-    'PDF' => Barryvdh\DomPDF\Facade::class,
+![tokoOnline](https://user-images.githubusercontent.com/23657902/107716706-8bf02500-6d04-11eb-95dc-da677472bbc0.png)
 
 
-## User
+## Modul Authentication
+- login 
 
-- [php artisan make:controller UserController](Membuat Controller User)
+![login](https://user-images.githubusercontent.com/23657902/107716844-e38e9080-6d04-11eb-938d-83878023f73c.png)
 
-## Halaman Register Member dan supplier
 
-- [php artisan make:controller AuthController](Membuat Controller Register dan Login)
+## Frontend Page
 
-## Register | Kirim Pesan Verifikasi Akun ke Email 
+![product](https://user-images.githubusercontent.com/23657902/107717327-f8b7ef00-6d05-11eb-9a9d-dcccfaf24c3c.png)
 
-- register dan verifikasi dengan akun email via google
+![supplier](https://user-images.githubusercontent.com/23657902/107717386-0ff6dc80-6d06-11eb-8b65-d2c6e3dffc71.png)
 
-    MAIL_DRIVER=smtp
-    MAIL_HOST=smtp.googlemail.com
-    MAIL_PORT=587
-    MAIL_USERNAME=ujangaja@gmail.com
-    MAIL_PASSWORD=masukan password email asli
-    MAIL_ENCRYPTION=tls
+![keranjang](https://user-images.githubusercontent.com/23657902/107717420-2b61e780-6d06-11eb-8a79-835ffa818a61.png)
 
-## Halaman Register Member dan supplier
+![profile](https://user-images.githubusercontent.com/23657902/107717406-1e44f880-6d06-11eb-9909-3195c6bc819e.png)
 
-- [composer require gloudemans/shoppingcart](https://github.com/Crinsane/LaravelShoppingcart )
-- If you're using Laravel 5.5, this is all there is to do.
 
-    Should you still be on version 5.4 of Laravel, the final steps for you are to add the service provider of the package and alias the package. To do this open your config/app.php file.
+![categoryProduct](https://user-images.githubusercontent.com/23657902/107712767-90184480-6cfc-11eb-8235-0dc09223f8da.png)
 
-    Add a new line to the providers array:
 
-    Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class
-    
-    And optionally add a new line to the aliases array:
+## Modul Product
+- CRUD Product
 
-    'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
+![productList](https://user-images.githubusercontent.com/23657902/107712877-b76f1180-6cfc-11eb-85d8-578078119b04.png)
 
-## Raja Ongkir
+![addProduct](https://user-images.githubusercontent.com/23657902/107712922-ceadff00-6cfc-11eb-96ec-125c54d213f9.png)
 
-- [daftar dan login raja ongkir](https://rajaongkir.com/)
-- pada file composer .json :
 
-    "autoload": {
-        "psr-4": {
-            "App\\": "app/"
-        },
-        "files": [
-            "app/Helper/rajaongkir.php"
-        ],
-    setela itu 
-- [composer dump-autoload](Untuk merefres/update composer.json)
+## Modul Transaction
+- Status Transaction
 
-## Konfigurasi vendor
+![transaction](https://user-images.githubusercontent.com/23657902/107713002-f3a27200-6cfc-11eb-9816-d89cff2e2fad.png)
 
-- [php artisan vendor:publish](Untuk memunculkan konfigurasi vendor)
+## Modul User
+- CRUD User
 
-    atau:
+![userList](https://user-images.githubusercontent.com/23657902/107716634-62cf9480-6d04-11eb-853c-7eb4aeb29353.png)
 
-- Configuration
-    To save cart into the database so you can retrieve it later, the package needs to know which database connection to use and what the name of the table is. By default the package will use the default database connection and use a table named shoppingcart. If you want to change these options, you'll have to publish the config file.
 
-    php artisan vendor:publish --provider="Gloudemans\Shoppingcart\ShoppingcartServiceProvider" --tag="config"
 
-- pada config/cart.php agar hitungan paajak tidak terhitung
-
-     /*
-    |--------------------------------------------------------------------------
-    | Default tax rate
-    |--------------------------------------------------------------------------
-    |
-    | This default tax rate will be used when you make a class implement the
-    | Taxable interface and use the HasTax trait.
-    |
-    */
-
-    'tax' => 0, (rubah menjadi 0 agar tidak masuk hitungan pajak)
-
-## Whatsup generator
-
-- [Mengirim konfirmasi pembayran yang terhubung dengan whatsup](https://www.wasap.at/)
-
-## Membuat Helper Hak Akses
-
-- [php artisan make:middleware Hakakses](Membuat Middleware Hakakses)
-- pada composer.json tambahkan helper yang kita buat:
-    autoload": {
-        "psr-4": {
-            "App\\": "app/"
-        },
-        "files": [
-            "app/Helper/rajaongkir.php",
-            "app/Helper/hakakses.php" "<=>ini adalah nama helper yang kita panggil"
