@@ -19,7 +19,7 @@
 
 ![keranjang](https://user-images.githubusercontent.com/23657902/107717420-2b61e780-6d06-11eb-8a79-835ffa818a61.png)
 
-![profile](https://user-images.githubusercontent.com/23657902/107717406-1e44f880-6d06-11eb-9909-3195c6bc819e.png)
+
 
 
 ![categoryProduct](https://user-images.githubusercontent.com/23657902/107712767-90184480-6cfc-11eb-8235-0dc09223f8da.png)
